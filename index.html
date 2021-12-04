@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSS - Demo Project</title>
+    <!-- add icon link -->
+    <link rel="icon" href="images/logo.svg" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Deploy your websites in less than 60 seconds."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <links
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav collapsible">
+        <a class="nav__brand" href="/"
+          ><img src="images/logo.svg" alt="Website Logo"
+        /></a>
+
+        <svg class="icon icon--white nav__toggler">
+          <use href="images/sprite.svg#menu"></use>
+        </svg>
+
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item"><a href="#">About Me</a></li>
+          <li class="nav__item"><a href="CV.html">CV</a></li>
+          <li class="nav__item"><a href="#">Portfolio</a></li>
+          <li class="nav__item"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="block block--dark block--skewed-left hero">
+      <div class="container grid grid--1x2">
+        <header class="block__header hero__content">
+          <h1 data-aos="zoom-in-up" class="block__heading">
+            Welcome to my website loser!
+          </h1>
+          <p data-aos="zoom-in-up" class="hero__tagline">
+            Theres not much here, but have a scroll! Please work Github.
+          </p>
+        </header>
+
+        <img
+          class="hero__image image--rounded"
+          src="images/me.jpg"
+          alt=""
+          data-aos="zoom-in"
+        />
+      </div>
+    </section>
+
+    <section class="block container">
+      <header class="block__header">
+        <h2>Why I have created this website.</h2>
+        <p>Read my objectives below.</p>
+      </header>
+      <article class="grid grid--1x2 feature">
+        <div class="feature__content" data-aos="fade-right">
+          <span class="icon-container">
+            <svg class="icon icon--primary">
+              <use href="images/sprite.svg#wordpress"></use>
+            </svg>
+          </span>
+          <h3 class="feature__heading">Skip Website Building Tools</h3>
+          <p>
+            I want to build my own website without relying on website building
+            tools such as WordPress. This means my website runs completely on my
+            own code.
+          </p>
+        </div>
+        <img
+          class="feature__image image--rounded"
+          src="images/wordpress app.jpg"
+          alt=""
+          data-aos="zoom-in-left"
+        />
+      </article>
+
+      <article class="grid grid--1x2 feature">
+        <div class="feature__content" data-aos="fade-up">
+          <span class="icon-container">
+            <svg class="icon icon--primary">
+              <use href="images/sprite.svg#computer"></use>
+            </svg>
+          </span>
+          <h3 class="feature__heading">HTML</h3>
+          <p>
+            I want to format my HTML code correctly and make sure it passes
+            validation standards.
+          </p>
+        </div>
+        <img
+          class="feature__image image--rounded"
+          src="images/html code.PNG"
+          alt=""
+        />
+      </article>
+
+      <article class="grid grid--1x2 feature">
+        <div class="feature__content" data-aos="fade-up">
+          <span class="icon-container">
+            <svg class="icon icon--primary">
+              <use href="images/sprite.svg#computer"></use>
+            </svg>
+          </span>
+          <h3 class="feature__heading">CSS</h3>
+          <p>
+            I want to follow Object Oriented CSS practices so that my code is
+            clean, reusable and scalable. I also want to take a "mobile first"
+            approach during development so that my website is responsive and
+            mobile friendly.
+          </p>
+        </div>
+        <img
+          class="feature__image image--rounded"
+          src="images/css code.PNG"
+          alt=""
+        />
+      </article>
+
+      <article class="grid grid--1x2 feature">
+        <div class="feature__content" data-aos="fade-left">
+          <span class="icon-container">
+            <svg class="icon icon--primary">
+              <use href="images/sprite.svg#computer"></use>
+            </svg>
+          </span>
+          <h3 class="feature__heading">Javascript</h3>
+          <p>
+            I want to include some of my own basic Javascript code and learn to
+            work with the DOM.
+          </p>
+        </div>
+        <img
+          class="feature__image image--rounded"
+          src="images/javascript code.jpg"
+          alt=""
+          data-aos="fade-right"
+        />
+      </article>
+    </section>
+
+    <section class="block block--dark">
+      <div class="container">
+        <h2>Site Navigation</h2>
+      </div>
+    </section>
+    <section class="block block--dark">
+      <section data-aos="zoom-in-up" class="block container block-plans">
+        <div class="grid grid--1x3">
+          <div class="plan">
+            <div class="card card--secondary">
+              <header class="card__header">
+                <span class="plan__price">About Me</span>
+              </header>
+              <div class="card__body">
+                <ul class="list list--tick">
+                  <li class="list__item">Gender</li>
+                  <li class="list__item">Political views</li>
+                  <li class="list__item">Religious beliefs</li>
+                </ul>
+                <a href="CV.html">
+                  <button class="btn btn--outline btn--block">
+                    View Now
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="plan plan--popular">
+            <div class="card card--primary">
+              <header class="card__header">
+                <span class="plan__price">My CV</span>
+              </header>
+              <div class="card__body">
+                <ul class="list list--tick">
+                  <li class="list__item">5 Stars</li>
+                  <li class="list__item">Unbelievable read</li>
+                  <li class="list__item">Hard not to be jealous</li>
+                </ul>
+
+                <a href="CV.html">
+                  <button class="btn btn--outline btn--block">
+                    View Now
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="plan">
+            <div class="card card--secondary">
+              <header class="card__header">
+                <span class="plan__price">Portfolio</span>
+              </header>
+              <div class="card__body">
+                <ul class="list list--tick">
+                  <li class="list__item">Past projects</li>
+                  <li class="list__item">Current projects</li>
+                  <li class="list__item">Future projects</li>
+                </ul>
+
+                <a href="CV.html">
+                  <button class="btn btn--outline btn--block">
+                    View Now
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer class="block block--dark footer">
+      <div class="container grid footer__sections">
+        <section class="collapsible collapsible--expanded footer__section">
+          <header class="collapsible__header">
+            <h2 class="collapsible__heading footer__heading">Products</h2>
+            <svg class="icon icon--white collapsible-icon">
+              <use href="images/sprite.svg#chevron"></use>
+            </svg>
+          </header>
+          <div class="collapsible__content">
+            <ul class="list">
+              <li><a href="#">Website Hosting</a></li>
+              <li><a href="#">Free Automated Wordpress</a></li>
+              <li><a href="#">Migrations</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="collapsible footer__section">
+          <header class="collapsible__header">
+            <h2 class="collapsible__heading footer__heading">Company</h2>
+            <svg class="icon icon--white collapsible-icon">
+              <use href="images/sprite.svg#chevron"></use>
+            </svg>
+          </header>
+          <div class="collapsible__content">
+            <ul class="list">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Affiliates</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="collapsible footer__section">
+          <header class="collapsible__header">
+            <h2 class="collapsible__heading footer__heading">Support</h2>
+            <svg class="icon icon--white collapsible-icon">
+              <use href="images/sprite.svg#chevron"></use>
+            </svg>
+          </header>
+          <div class="collapsible__content">
+            <ul class="list">
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Knowledge Base</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="collapsible footer__section">
+          <header class="collapsible__header">
+            <h2 class="collapsible__heading footer__heading">Domains</h2>
+            <svg class="icon icon--white collapsible-icon">
+              <use href="images/sprite.svg#chevron"></use>
+            </svg>
+          </header>
+          <div class="collapsible__content">
+            <ul class="list">
+              <li><a href="#">Domain Checker</a></li>
+              <li><a href="#">Domain Transfer</a></li>
+              <li><a href="#">Free Domain</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer__brand">
+          <img src="images/logo.svg" alt="" />
+          <p class="footer__copyright">Copyright 2020</p>
+        </section>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

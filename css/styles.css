@@ -1,0 +1,1138 @@
+/*------------------------------------------------------------*/
+/* Universal */
+/*------------------------------------------------------------*/
+
+:root {
+  --color-primary: #2584ff;
+  --color-secondary: #00d9ff;
+  --color-accent: #ff3400;
+  --color-headings: #1b0760;
+  --colr-body: #918ca4;
+  --color-body-darker: #5c5577;
+  --color-border: #ccc;
+  --border-radius: 30px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* To stop our content stretching within the block when screen size is increased. */
+/* Text is left aligned in container by default. Set 0 vertical margin and auto horizontal margin which means if there is extra space, the space will be evenly distributed to the sides of the content. */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/*------------------------------------------------------------*/
+/* Typography */
+/*------------------------------------------------------------*/
+
+/* Styling for when you highlight text. */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+html {
+  /* Font Size is 16px by default. 1rem is 1 x 16 so 16pxs. Set to 62.5% so 62.5% of 16px = 10pxs. Therefore 1rem is now 10pxs. */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--colr-body);
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+  /*Hero styling. */
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+p {
+  /* Allow heading elements to dictate margin. */
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Links */
+/*------------------------------------------------------------*/
+
+a {
+  text-decoration: none;
+}
+
+.link-arrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.link-arrow::after {
+  content: "-->";
+  /* Using px to ensure always a noticable gap before the arrow. */
+  margin-left: 5px;
+  /* Applies smooth transition to the margin which makes the arrow move. */
+  transition: margin 0.15s;
+}
+
+.link-arrow:hover::after {
+  /* Targets the margin. */
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Badges */
+/*------------------------------------------------------------*/
+
+/* Seperate structure from skin. */
+
+.badge {
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  /* Prevents badge wrapping onto new line */
+  white-space: nowrap;
+  font-size: 2rem;
+}
+
+.badge--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.badge--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.badge--small {
+  font-size: 1.6rem;
+  /* Styling for within plan. */
+  padding: 0.5rem 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .badge {
+    font-size: 1.5rem;
+  }
+
+  .badge--small {
+    font-size: 1.2rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Lists */
+/*------------------------------------------------------------*/
+
+.list {
+  /* Remove default bullet point and left margin. */
+  list-style: none;
+  padding-left: 0;
+}
+
+.list--inline .list__item {
+  /* Inline block allows you to apply margins. */
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.list--tick {
+  list-style-image: url(../images/tick.svg);
+  padding-left: 3rem;
+  color: var(--color-headings);
+}
+
+.list--tick .list__item {
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .list--tick .list__item {
+    padding-left: 0;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Icons */
+/*------------------------------------------------------------*/
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon--primary {
+  fill: var(--color-primary);
+}
+
+.icon-container {
+  background-color: #f3f9fa;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  /* This container is a span. Spans are inline elements and width and height have no effect on inline elements. We use inline-flex for positioning. */
+  display: inline-flex;
+  /* Aligning along the primary axis which by default is the X axis. */
+  justify-content: center;
+  /* Aligning along the secondary axis which by default is the Y axis. */
+  align-items: center;
+}
+
+/* Following testimonial styling. */
+
+.icon-container--accent {
+  background-color: var(--color-accent);
+}
+
+.icon--white {
+  fill: #fff;
+}
+
+.icon--small {
+  width: 30px;
+  height: 30px;
+}
+
+/*------------------------------------------------------------*/
+/* Buttons */
+/*------------------------------------------------------------*/
+
+/* We have buttons which stretch to just include their internal content and we have buttons which stretch to take up all of the available space (block button). */
+
+/* Anchor elements are not centered in the button and the button is wider then the screen. This happens because box sizing has not been set so the horizontal padding we have set is added ontop of the 100% value we have specified for width. This does not happen to the button element because by default browsers set box sizing of button elements to border-box. Fix for this specied at the top of the stylesheet using the universal selector (*). */
+
+.btn {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  /* Horizontal padding set to 4% of view port. This is so when the search bar is shrunk on mobile the search button dynamically fits. */
+  padding: 2rem 4vw;
+  border: 0;
+  border-radius: 40px;
+  cursor: pointer;
+  outline: 0;
+  /* Prevent text of button wrapping onto second line. */
+  white-space: nowrap;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Domain block, styling icons within buttons. */
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  /*Align with button label. */
+  vertical-align: middle;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  /* Should use SAS to allow for variations rather then hardcode e.g. background-color: lighten(primary, 10%); */
+  background-color: #3a8ffd;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.btn--secondary:hover {
+  background-color: #00c8eb;
+}
+
+.btn--accent {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.btn--accent:hover {
+  background: #ec3000;
+}
+
+.btn--block {
+  width: 100%;
+  /* Anchor elements are inline by default so giving them a width won't work hence display is changed to inline block. */
+  display: inline-block;
+}
+
+.btn--outline {
+  background: #fff;
+  color: var(--color-headings);
+  border: 2px solid var(--color-headings);
+}
+
+.btn--outline:hover {
+  background: var(--color-headings);
+  color: #fff;
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    font-size: 1.5rem;
+  }
+}
+
+/* Following callout styling. */
+
+.btn--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+/*------------------------------------------------------------*/
+/* Inputs */
+/*------------------------------------------------------------*/
+
+.input {
+  padding: 1.5rem 3.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  outline: 0;
+  color: var(--color-headings);
+  font-size: 2rem;
+}
+
+::placeholder {
+  color: #cdcbd7;
+}
+
+/* Can move button before or after place holder in index.html. Could also swap out for an icon etc. */
+
+/* To place button beside input we are actually going to place it all inside a div and apply the styling to the div. */
+.input-group {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  /* Input group is a div. Div are block level elements and stretch to take up 100%. Need to make the input field take up all the available space in order to push the search button to the right. */
+  display: flex;
+}
+
+.input-group .input {
+  border: 0;
+  /* Makes input field grow to take up all available space. */
+  flex-grow: 1;
+  /* Reduce padding so not big gap between button/icon if at the start of the input field. */
+  padding: 1.5rem 2rem;
+  /* Allows flex grow to set width property instead of browser. */
+  width: 0;
+}
+
+/* Equal margin around a button within an input group. */
+.input-group .btn {
+  margin: 4px;
+}
+
+@media screen and (min-width: 1024px) {
+  .input {
+    font-size: 1.5rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Cards */
+/*------------------------------------------------------------*/
+
+.card {
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #2e2e2e;
+  /* Border radius set to card element (parent). When colour of card__header changed to blue the element grows larger (overflow) than its parent container meaning it loses its rounded corners. By default overflow is visibile. To bring back rounded corners set overflow of parent to hidden. */
+  overflow: hidden;
+}
+
+.card__header,
+.card__body {
+  /* Make sure elements line up. */
+  padding: 2rem 3rem;
+}
+
+.card__body {
+  background: #fff;
+}
+
+.card--primary .card__header {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.card--secondary .card__header {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+/* For plan styling. */
+
+.card--secondary .badge--secondary {
+  background: #02cdf1;
+}
+
+.card--primary .badge--primary {
+  background: #126de4;
+}
+
+/*------------------------------------------------------------*/
+/* Plan */
+/*------------------------------------------------------------*/
+
+.plan__name {
+  color: #fff;
+  /* Space above the text due to the default margin applied to h3 elements. */
+  margin: 0;
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+.plan__price {
+  font-size: 5rem;
+}
+
+.plan__billing-cycle {
+  font-size: 2.4rem;
+  font-weight: 300;
+  /* Make text softer. */
+  opacity: 0.8;
+  margin-right: 1rem;
+}
+
+.plan__description {
+  font-size: 2rem;
+  font-weight: 300;
+  /* Space letters slightly. */
+  letter-spacing: 1px;
+
+  /* Span element is inline by default so will wrap. */
+  display: block;
+}
+
+.plan .list__item {
+  margin-bottom: 2rem;
+}
+
+/* Using absoloute positioning for the popular icon. Should make parent container (.card__header) a releatively positioned element. */
+
+.plan--popular .card__header {
+  position: relative;
+}
+
+.plan--popular .card__header::before {
+  content: url(../images/popular.svg);
+  width: 40px;
+  /* Inline element by defualt. */
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  /* Takes with of card and uses 5% of this value as the offset from the right. */
+  right: 5%;
+}
+
+/* Part of plans block styling. */
+/* Making a popular plan slightly bigger. */
+
+.plan {
+  transition: transform 0.2s ease-out;
+}
+.plan--popular {
+  transform: scale(1.1);
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+
+/* Growing a popular plan by 5% is atually a reduction of 5% because we have already increased it to 10% larger so therefore must increase it to 15%. */
+
+.plan--popular:hover {
+  transform: scale(1.15);
+}
+
+@media screen and (min-width: 1024px) {
+  .plan__name {
+    font-size: 1.4rem;
+  }
+
+  .plan__price {
+    font-size: 5rem;
+  }
+
+  .plan__billing-cycle {
+    font-size: 1.6rem;
+  }
+
+  .plan__description {
+    font-size: 1.7rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Media Object */
+/*------------------------------------------------------------*/
+
+/* Media object = image/avatart on the left followed by title and some text on the right. */
+
+.media {
+  /* Use flex on container (media object) to lay elments horizontally. */
+  display: flex;
+  /* Following showcase block styling. */
+  margin-bottom: 4rem;
+}
+
+.media__title {
+  margin-top: 0;
+}
+
+.block--dark .media__title {
+  color: #fff;
+}
+
+.media__body {
+  margin: 0 2rem;
+}
+
+.media__image {
+  margin-top: 1rem;
+}
+
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
+  color: #fff;
+}
+
+/*------------------------------------------------------------*/
+/* Quotes */
+/*------------------------------------------------------------*/
+
+.quote {
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--color-body-darker);
+  line-height: 1.3;
+}
+
+.quote__text::before {
+  content: open-quote;
+}
+
+.quote__text::after {
+  content: close-quote;
+}
+
+/* Always think to add a class for styling rather than relying on nesting. E.g. .quother__author as appose to .quote .media__title. */
+
+.quote__author {
+  font-size: 3rem;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 0;
+}
+
+.quote__organisation {
+  color: var(--color-headings);
+  opacity: 0.4;
+  font-size: 2rem;
+  font-style: normal;
+}
+
+/* Position line icon using relative positioning. Positions the element relative to itself without effecting other elements. */
+
+.quote__line {
+  position: relative;
+  bottom: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .quote {
+    font-size: 2rem;
+  }
+
+  .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .quote__organisation {
+    font-size: 1.6rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Grids */
+/*------------------------------------------------------------*/
+
+.grid {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  /* Class only activates if media query is met. Takes all the available space, divides it by 2 and gives each column an equal slice. */
+  .grid--1x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Testimonials */
+/*------------------------------------------------------------*/
+
+.testimonial {
+  padding: 3rem;
+}
+
+.testimonial__image > img {
+  /* Child selector. Selects image within class. Usually avoid this approach but appropriate here. */
+  /* Image default width 400px. This prevents the columns being equal sizes at certain breakpoints. To make image responsive set width to 100% which makes it take up the full width of its column and ensures equal columns will be maintained. */
+  width: 100%;
+}
+
+/* Adding icon. Needs absolute positioning to stay fixed. To achieve need to place image and icon inside a container (.testimonial__image) which is relatively positioned. */
+.testimonial__image {
+  position: relative;
+}
+
+.testimonial__image > .icon-container {
+  position: absolute;
+  top: 3rem;
+  /* Icon width is set to 64px so to center use 32px. */
+  right: -32px;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial .quote,
+  .testimonial .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .testimonial .quote {
+    margin-left: 6rem;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Call Outs */
+/*------------------------------------------------------------*/
+
+.callout {
+  padding: 4rem;
+  border: 5px;
+}
+
+.callout--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.callout__heading {
+  color: #fff;
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+/* The default for aligning items in a grid is stretch. To solve have to change the alignment of button in grid. */
+
+.callout .btn {
+  /* Aligns grid item horizontally. */
+  justify-self: center;
+  /* Aligns grid item vertically. */
+  align-self: center;
+}
+
+.callout__content {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .callout__content {
+    text-align: left;
+  }
+
+  .callout .btn {
+    /* Align button closer to text on tablet and above. */
+    justify-self: start;
+    margin: 0 2rem;
+  }
+
+  .callout .grid--1x2 {
+    /* The second column contains a much smaller button. To get rid of deadspace use the auto property for big screens. This allows the first column containing more content to take up more space and remove the redundant space after the button. */
+    grid-template-columns: 1fr auto;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Collapsibles */
+/*------------------------------------------------------------*/
+
+/* Use flex to layout items horizontally or vertically. */
+
+.collapsible__header {
+  display: flex;
+  /* Pushes content to edge of container and adds space between. */
+  justify-content: space-between;
+}
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.collapsible-icon {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+
+.collapsible__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* Use all to anaimate multiple properties. */
+  transition: all 0.3s;
+}
+
+.collapsible--expanded .collapsible-icon {
+  transform: rotate(0);
+}
+
+.collapsible--expanded .collapsible__content {
+  /* Dynamically set to height of content. */
+  max-height: 100vh;
+  /* Gives smooth transition. */
+  opacity: 1;
+}
+
+/*------------------------------------------------------------*/
+/* Blocks */
+/*------------------------------------------------------------*/
+
+.block {
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+  /* Using "text-align: center;" here for the block header would mean every element we insert within the block would have it's text centered. Leads to layout mess ups for things like cards etc. Solution: Create new container for the header and center text there. Use <header> for semantics. */
+}
+
+.block__heading {
+  margin-top: 0;
+}
+
+.block__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.block--dark {
+  background: #000;
+  color: #7b858b;
+}
+
+.block--dark .block__heading {
+  color: #fff;
+}
+
+/* Use the clip path generator website clippy. */
+/* Each paired percentages between the commas represents a corner of the image starting from top left with first being X offset and second being Y offset. */
+
+.block--skewed-right {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 97%);
+  /* Extra padding to compensate for padding lost through clipping. Declare constant within scope of parent element means it is visible to children elements. Use the calculate function to add to the constant so if the constant is changed in the block element it is dynamically accounted for in the skewed element styling. */
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+.block--skewed-left {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 97%, 0% 100%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+/* Can't apply container class to dark blocks as it contains the width of the block, which when coloured black is obvious. Instead need to wrap block content in a div with a class of container as div will take up entire width of screen while also containing content. */
+
+/*------------------------------------------------------------*/
+/* Navigation Bar */
+/*------------------------------------------------------------*/
+
+/* In terms of behaviour, this navigation bar is another collapisble component. Logo is wrapped in an anchor so when a user clicks it they are brought to the homepage of the website. */
+
+.nav {
+  background: #000;
+  /* By default flex direction is horizontal. */
+  display: flex;
+  /*Push first and last items to the sides and evenly distributre remaining space between items, this is for mobile. */
+  justify-content: space-between;
+  /* Navigation bar has three elements, the toggler icon (hidden on desktop), the logo and an unordered list. Going to use flex to lay components out horizontally. When we add items to a flex container (.nav) they shrink by default so they can appear in one line. On mobile we want the menu items to appear on the second line below the navigation bar. To achieve this we give the list (.nav__list) a width of 100% which is 100% of the width of its parent (.nav), which is the entire navigation bar, so this list is going to stretch. Then we enable wrapping in our flex container (.nav) to allow the list to appear on the second line. */
+  flex-wrap: wrap;
+  /* Increase padding around logo and toggler. */
+  padding: 0 1rem;
+
+  /* Use align items to align items along the secondary axis.*/
+  align-items: center;
+}
+
+.nav__list {
+  width: 100%;
+  /* Use dev tools, highlight element, check its margins and remove. */
+  margin: 0;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: solid 1px #222;
+}
+
+.nav__item > a {
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.nav__item > a:hover {
+  color: #fff;
+}
+
+/* Make nav collapsible = give it the .collapsible class and the list (content) the .collapsible__content class. */
+
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.nav.collapsible--expanded .nav__toggler {
+  /* No space between the first two classes means the element must have both these classes. */
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+/* Hack to fix dodgey bottom margin of logo. */
+.nav__brand {
+  transform: translateY(5px);
+}
+/* For desktop = hide toggler and remove 100% width of .nav__list and instead set to auto so it will stretch enough to fit the content and not appear on the second line. */
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav__list {
+    width: auto;
+    /* Lay horizontally. */
+    display: flex;
+    font-size: 1.6rem;
+
+    /* Make .nav__list visible. Basically set the conditions of the expanded class to always show the content. */
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Hero (Banner) */
+/*------------------------------------------------------------*/
+
+/* Desktop = Dark block skewed left with a 2 column grid. First column has content, second has image. Mobile = 1 column grid. */
+
+.hero__tagline {
+  font-size: 2rem;
+  color: #b9c3cf;
+  letter-spacing: 1px;
+  margin: 2rem 0 5rem;
+}
+
+.hero__image {
+  /* Image too large leading to horizontal scrolling. Have to set width to 100%. */
+  width: 100%;
+}
+
+/* For styling --> start with more generic classes and then specialise further in you go. */
+/* Overriding original polygon. */
+/* End up deleting as fix from orignal source later in course but keeping code for reference.
+.hero {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+} */
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+
+  .hero__content {
+    text-align: left;
+    /* On widescreens content should be aligned vertically in the middle. Content element is inside a grid. Want to align the item. */
+    align-self: center;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Domain Block */
+/*------------------------------------------------------------*/
+
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  /* Input group does not take up entire screen, need to max width and then set horizontal margins to auto to evenly distribute the space on either side of the search bar. */
+
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain__prices {
+  color: var(--color-headings);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Sets height of rows. */
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  /* Align items within the grid. (ITEMS is for aligning within a grid. (In this case justify-items is used for the horizontal alignment. */
+  justify-items: center;
+  /* List does not take up entire screen, need to max width and then set horizontal margins to auto to evenly distribute the space on either side of the list. */
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* For big sreen want to lay prices out horizontally in one line. */
+/* Possible solution = grid-template-columns: repeat(6, 1fr); but then in future if we add a new price we have to remember to come back here and update to 7. Instead of using hardcoded value and use a predefined value called auto-fit. With auto-fit the grid creates as many columns as required but we cannot us a fr unit in conjunction with autofit. Should avoid using an absoloute value such as 100px also. Instead use the minmax function to provide a range. Provide px value as minimum and fr value for maximum. This means if there is extra space available, it will be equally distributed to the columns. */
+
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Plans Block */
+/*------------------------------------------------------------*/
+
+.block-plans .grid {
+  /* Setting distance between elements in the grid. */
+  gap: 8rem 4rem;
+}
+
+/* Stop cards stretching and center card. */
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/*------------------------------------------------------------*/
+/* Features Block */
+/*------------------------------------------------------------*/
+
+.feature {
+  gap: 4rem 2rem;
+  margin: 12rem 0;
+}
+.feature__heading {
+  margin-top: 1rem 0;
+}
+
+.feature__image {
+  width: 100%;
+}
+
+/* Margin for first .feature__content is too large at twelve. Target first .feature__content only and half the margin. */
+
+.feature:first-of-type {
+  margin-top: 6rem;
+}
+/* Swap the order of the every second (even) .feature__content around. */
+@media screen and (min-width: 768px) {
+  .feature:nth-of-type(even) .feature__content {
+    order: 2;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Showcase Block */
+/*------------------------------------------------------------*/
+
+/* Come back for image optimisation and how to maintain grid. */
+
+.block--showcase__image {
+  width: 100%;
+}
+
+/* Stop the image rezing on tablet and allow it to flow out of the screen. */
+/* This messes up the columns as image is showed to its full size, offsetting the second column. */
+/* Use 50% instead of 1fr as 50% of the container is used. The width of the column is not determined by the width of the content (image). */
+/* While this ensures two equal columns it can cause the image to spill into the second column and be under the text. */
+/* To prevent we need to align image to the right side of its column (justify-self: end;). */
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%;
+  }
+  .block--showcase__image {
+    width: auto;
+    /* Stop image invariably growing. */
+    max-width: 700px;
+    justify-self: end;
+  }
+}
+
+/*------------------------------------------------------------*/
+/* Footer */
+/*------------------------------------------------------------*/
+
+.footer {
+  background-color: #232323;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+.footer__section {
+  padding: 2rem;
+  border-bottom: 1px solid #393939;
+}
+
+/* Overriding browser default (user-agent). */
+
+.footer__section .list {
+  margin: 0;
+}
+
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.footer__brand {
+  margin: 5rem;
+  text-align: center;
+}
+
+/* Need to make brand image responsive, otherwise it squashes into the footer headings when the screen is gradually shrunk. */
+/* We have done this a few times now, could consider using a universal img { width: 100% } rule. Best to build website first and check if its applicable though. */
+/* Think width: 100% think max width. */
+
+.footer__brand img {
+  width: 100%;
+  max-width: 230px;
+}
+
+.footer__copyright {
+  font-size: 2.1rem;
+  color: #fff;
+  opacity: 0.3;
+}
+
+/* Redefine grid. */
+/* Add footer sections for extra specificity, incase we were to add a new grid to our footer in future that we didn't want to have the same layout. */
+
+@media screen and (min-width: 768px) {
+  .footer__sections {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  /* Hididng toggler chevron. */
+
+  .footer .collapsible-icon {
+    display: none;
+  }
+
+  /* Making collapsible visible. */
+  .footer .collapsible__content {
+    opacity: 1;
+    max-height: 100%;
+  }
+
+  /* Moving logo to the start of the footer. */
+  /* All items in grid have order 0 by default. Set to -1 it jumps to the start. */
+
+  .footer__brand {
+    /* Set to 5rem earlier to put gap beneath beneath mobile footer options but looks bad on desktop. */
+    margin: 1rem;
+    order: -1;
+  }
+
+  .footer__copyright {
+    font-size: 1.5rem;
+  }
+
+  /* Get rid of mobile bottom border. */
+  .footer__section {
+    border: none;
+  }
+
+  .footer__heading {
+    font-size: 1.6rem;
+  }
+}
+
+/* Troubleshooting */
+
+/* When troubleshooting you should isolate the problem. Take the component into a new html file and inspect in dev tools at different resolutions. Add borders etc around troubling components. Delete none troubling components. */
+/* In this orginal code for the domain block the input group shrunk beneath the button, meaning the button trailed off the screen. */
+/* This occured because the input grew larger then its parent element. */
+/* This occurs because we have .input-group .input { flex-grow: 1; } which allows the input group to grow to take up all of the available space and pusht the button to the end of the input group. */
+/* We must add .input-group .input { flex-grow: 1; width:0; } so that the flex-grow property will set the width of the group instead of a browser generated value. */
+
+/* My Inclusions */
+
+.image--rounded {
+  border-radius: 30px;
+  height: 80%;
+  width: 90%;
+  margin-top: 5rem;
+}
