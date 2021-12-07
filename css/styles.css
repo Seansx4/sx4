@@ -100,6 +100,16 @@ a {
   text-decoration: none;
 }
 
+.link {
+  font-size: 1.6rem;
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #fff;
+}
+
 .link-arrow {
   color: var(--color-accent);
   text-transform: uppercase;
@@ -812,7 +822,7 @@ a {
   /* Navigation bar has three elements, the toggler icon (hidden on desktop), the logo and an unordered list. Going to use flex to lay components out horizontally. When we add items to a flex container (.nav) they shrink by default so they can appear in one line. On mobile we want the menu items to appear on the second line below the navigation bar. To achieve this we give the list (.nav__list) a width of 100% which is 100% of the width of its parent (.nav), which is the entire navigation bar, so this list is going to stretch. Then we enable wrapping in our flex container (.nav) to allow the list to appear on the second line. */
   flex-wrap: wrap;
   /* Increase padding around logo and toggler. */
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 
   /* Use align items to align items along the secondary axis.*/
   align-items: center;
@@ -859,6 +869,22 @@ a {
 }
 /* For desktop = hide toggler and remove 100% width of .nav__list and instead set to auto so it will stretch enough to fit the content and not appear on the second line. */
 
+.nav__item--dropdown {
+  padding: 0.5rem 2rem;
+
+  border-bottom: solid 1px #222;
+  color: #d2d0db;
+}
+
+.nav__item--dropdown > a:hover {
+  color: #fff;
+}
+
+.iconstyle {
+  color: #8e8c97;
+  vertical-align: middle;
+}
+
 @media screen and (min-width: 768px) {
   .nav__toggler {
     display: none;
@@ -868,7 +894,7 @@ a {
     width: auto;
     /* Lay horizontally. */
     display: flex;
-    font-size: 1.6rem;
+    font-size: 2rem;
 
     /* Make .nav__list visible. Basically set the conditions of the expanded class to always show the content. */
     max-height: 100%;
@@ -877,6 +903,21 @@ a {
 
   .nav__item {
     border: 0;
+  }
+
+  .nav__item,
+  .nav__item--dropdown {
+    border: 0;
+  }
+
+  /*Addition for hover effect */
+
+  .dropdown > .collapsible__content {
+    display: none;
+  }
+
+  .dropdown:hover > .collapsible__content {
+    display: contents;
   }
 }
 
@@ -1135,4 +1176,13 @@ a {
   height: 80%;
   width: 90%;
   margin-top: 5rem;
+}
+
+header.is-sticky {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgb(16 16 16 / 21%);
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SSS - Demo Project</title>
     <!-- add icon link -->
-    <link rel="icon" href="images/logo.svg" type="image/x-icon" />
+    <link rel="icon" href="images/SX3-logos.jpeg" type="image/x-icon" />
     <meta
       name="description"
       content="Deploy your websites in less than 60 seconds."
@@ -20,41 +20,98 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <nav class="nav collapsible">
-        <a class="nav__brand" href="/"
-          ><img src="images/logo.svg" alt="Website Logo"
-        /></a>
+        <span class="nav__item">
+          <a href="/"> SX3 | &lt;/&gt; </a>
+        </span>
 
         <svg class="icon icon--white nav__toggler">
           <use href="images/sprite.svg#menu"></use>
         </svg>
 
         <ul class="list nav__list collapsible__content">
-          <li class="nav__item"><a href="#">About Me</a></li>
-          <li class="nav__item"><a href="CV.html">CV</a></li>
           <li class="nav__item"><a href="#">Portfolio</a></li>
           <li class="nav__item"><a href="#">Contact</a></li>
+          <li class="nav__item"><a href="CV.html">About Me</a></li>
+          <li class="dropdown nav__item--dropdown collapsible">
+            <a>Services<i class="material-icons iconstyle"> expand_more </i></a>
+
+            <div class="collapsible__content">
+              <ul class="list">
+                <li>
+                  <a class="link" href="#">Web Design</a>
+                </li>
+                <li>
+                  <a class="link" href="#">Site Audits</a>
+                </li>
+                <li>
+                  <a class="link" href="#">SEO</a>
+                </li>
+                <li>
+                  <a class="link" href="#">Ecommerce</a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
+
+    <!-- <header class="header is-sticky">
+      <nav class="nav collapsible">
+        <a class="link" href="index.html">&lt;/&gt;</a>
+        <svg class="icon icon--white nav__toggler">
+          <use href="images/sprite.svg#menu"></use>
+        </svg>
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item"><a href="index.html">Home</a></li>
+          <li class="dropdown nav__item--dropdown collapsible">
+            <a>Services<i class="material-icons iconstyle"> expand_more </i></a>
+
+            <div class="collapsible__content">
+              <ul class="list">
+                <li>
+                  <a class="link" href="#">Web Design</a>
+                </li>
+                <li>
+                  <a class="link" href="#">Site Audits</a>
+                </li>
+                <li>
+                  <a class="link" href="#">SEO</a>
+                </li>
+                <li>
+                  <a class="link" href="#">Ecommerce</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav__item"><a href="about us.html">About</a></li>
+          <li class="nav__item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header> -->
 
     <section class="block block--dark block--skewed-left hero">
       <div class="container grid grid--1x2">
         <header class="block__header hero__content">
           <h1 data-aos="zoom-in-up" class="block__heading">
-            Welcome to my website loser!
+            Simple Site Solutions
           </h1>
           <p data-aos="zoom-in-up" class="hero__tagline">
-            Theres not much here, but have a scroll!
+            Delivering website solutions
           </p>
         </header>
 
         <img
           class="hero__image image--rounded"
-          src="images/me.jpg"
+          src="images/SX3-logos_white.png"
           alt=""
           data-aos="zoom-in"
         />
@@ -63,9 +120,61 @@
 
     <section class="block container">
       <header class="block__header">
-        <h2>Why I have created this website.</h2>
-        <p>Read my objectives below.</p>
+        <h2 style="color: #353839">Welcome to SX3</h2>
+        <p>
+          SX3 objective is to build simple, straight forward, clean, websites,
+          just like this one!
+        </p>
       </header>
+
+      <article class="grid grid--1x2 feature">
+        <div class="feature__content" data-aos="fade-right">
+          <h3 class="feature__heading">Introduction</h3>
+          <p>
+            Chances are if you are reading this, I have already reached out to
+            you. SX3 is run by me, Sean. I am an enthusiastic web developer who
+            enjoys creating web projects for myself. I believe the approach I
+            take, and the platforms I use, allow me to minimise costs for
+            businesses that I reach out to. Please see my brief outline below :)
+          </p>
+        </div>
+        <img
+          class="feature__image image--rounded"
+          src="images/me.jpg"
+          alt=""
+          data-aos="zoom-in"
+        />
+      </article>
+
+      <article class="grid grid--1x2 feature">
+        <div class="feature__content" data-aos="fade-right">
+          <h3 class="feature__heading">Brochure Websites</h3>
+          <p>
+            Brochure websites are exactly that, a brochure. They are lightweight
+            websites which do not rely on complex architectures and data
+            management systems in the way websites like Facebook and Amazon
+            would. Typically, brochure websites are well suited to local
+            businesses who require a web presence. A simple web presence is
+            extremely important in todays mobile culture, and even more so with
+            the recent trend of consumers returning to favour a website over an
+            app or social media profile. In fact, 84% of today’s consumers think
+            a business with a website is more credible than a business with only
+            a social media profile (source:<a
+              class="link"
+              href="https://themeisle.com/blog/do-i-need-a-website-for-my-business/"
+              target="_blank"
+              >10 reasons why you need a website for your small business</a
+            >).
+          </p>
+        </div>
+        <img
+          class="feature__image image--rounded"
+          src="images/me.jpg"
+          alt=""
+          data-aos="zoom-in"
+        />
+      </article>
+
       <article class="grid grid--1x2 feature">
         <div class="feature__content" data-aos="fade-right">
           <span class="icon-container">
@@ -73,18 +182,32 @@
               <use href="images/sprite.svg#wordpress"></use>
             </svg>
           </span>
-          <h3 class="feature__heading">Skip Website Building Tools</h3>
+          <h3 class="feature__heading">Website Building Tools</h3>
           <p>
-            I want to build my own website without relying on website building
-            tools such as WordPress. This means my website runs completely on my
-            own code.
+            The vast majority of todays websites are built using website
+            building tools, such WordPress or Square Space. These powerful tools
+            allow web developers to quickly design and create websites for their
+            clients. While these tools have undoubtedly made web development
+            more accesible, and helped to raise the standard of todays websites,
+            they are subscription based, and so come at a cost. The cheapest
+            WordPress plan for example is 23 euro a month. This means users pay
+            over 250 euro a year to simply own an often quiet limited website.
+            Proffesional web developers expense this cost to the client, passing
+            it off as the price to own a website nowadays, when instead it is
+            the price to pay to own a website built using their tools of choice.
+            Furthermore, this price is prior to paying for a custom domain or
+            SSL security. While I truly believe website building tools are
+            fantastic, in my opionon they are unnnescary for brochure websites.
+            This is why I custom code each website I create from scratch. As I
+            own the code, the websites I create forgo the hefty hosting price
+            associated with website building tools.
           </p>
         </div>
         <img
           class="feature__image image--rounded"
           src="images/wordpress app.jpg"
           alt=""
-          data-aos="zoom-in-left"
+          data-aos="zoom-in-up"
         />
       </article>
 
@@ -95,10 +218,12 @@
               <use href="images/sprite.svg#computer"></use>
             </svg>
           </span>
-          <h3 class="feature__heading">HTML</h3>
+          <h3 class="feature__heading">Websites</h3>
           <p>
-            I want to format my HTML code correctly and make sure it passes
-            validation standards.
+            SX3 is transparent. Making brochure websites for business is a
+            hobby. Websites are built using HTML, CSS and Javascript
+            technologies. Most of the websites follow a similar structure and
+            often styling is what makes them unique.
           </p>
         </div>
         <img
@@ -115,12 +240,13 @@
               <use href="images/sprite.svg#computer"></use>
             </svg>
           </span>
-          <h3 class="feature__heading">CSS</h3>
+          <h3 class="feature__heading">Other Services</h3>
           <p>
-            I want to follow Object Oriented CSS practices so that my code is
-            clean, reusable and scalable. I also want to take a "mobile first"
-            approach during development so that my website is responsive and
-            mobile friendly.
+            I have experience working with site auditing, SEO related projects
+            and ecommerce solutions through my own proffesional job. I would be
+            more then happy to consult on projects where possible would would
+            never embark on a project out of my depth or that I felt I couldnt
+            really have a large impact on.
           </p>
         </div>
         <img
@@ -131,7 +257,7 @@
       </article>
 
       <article class="grid grid--1x2 feature">
-        <div class="feature__content" data-aos="fade-left">
+        <div class="feature__content" data-aos="fade-up">
           <span class="icon-container">
             <svg class="icon icon--primary">
               <use href="images/sprite.svg#computer"></use>
@@ -150,77 +276,6 @@
           data-aos="fade-right"
         />
       </article>
-    </section>
-
-    <section class="block block--dark">
-      <div class="container">
-        <h2>Site Navigation</h2>
-      </div>
-    </section>
-    <section class="block block--dark">
-      <section data-aos="zoom-in-up" class="block container block-plans">
-        <div class="grid grid--1x3">
-          <div class="plan">
-            <div class="card card--secondary">
-              <header class="card__header">
-                <span class="plan__price">About Me</span>
-              </header>
-              <div class="card__body">
-                <ul class="list list--tick">
-                  <li class="list__item">Gender</li>
-                  <li class="list__item">Political views</li>
-                  <li class="list__item">Religious beliefs</li>
-                </ul>
-                <a href="CV.html">
-                  <button class="btn btn--outline btn--block">
-                    View Now
-                  </button></a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="plan plan--popular">
-            <div class="card card--primary">
-              <header class="card__header">
-                <span class="plan__price">My CV</span>
-              </header>
-              <div class="card__body">
-                <ul class="list list--tick">
-                  <li class="list__item">5 Stars</li>
-                  <li class="list__item">Unbelievable read</li>
-                  <li class="list__item">Hard not to be jealous</li>
-                </ul>
-
-                <a href="CV.html">
-                  <button class="btn btn--outline btn--block">
-                    View Now
-                  </button></a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="plan">
-            <div class="card card--secondary">
-              <header class="card__header">
-                <span class="plan__price">Portfolio</span>
-              </header>
-              <div class="card__body">
-                <ul class="list list--tick">
-                  <li class="list__item">Past projects</li>
-                  <li class="list__item">Current projects</li>
-                  <li class="list__item">Future projects</li>
-                </ul>
-
-                <a href="CV.html">
-                  <button class="btn btn--outline btn--block">
-                    View Now
-                  </button></a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </section>
 
     <footer class="block block--dark footer">
