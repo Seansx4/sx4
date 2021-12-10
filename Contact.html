@@ -92,106 +92,43 @@
       </nav>
     </header> -->
 
-    <section class="block block--dark block--skewed-left hero">
-      <div class="container grid grid--1x2">
-        <header class="block__header hero__content">
-          <h1 data-aos="zoom-in-up" class="block__heading">
-            Simple Site Solutions
-          </h1>
-          <p data-aos="zoom-in-up" class="hero__tagline">
-            Delivering website solutions
-          </p>
-        </header>
-
-        <img
-          class="hero__image"
-          src="images/SX3-logos_white.png"
-          alt=""
-          data-aos="zoom-in"
-        />
-      </div>
-    </section>
-
     <section class="block container">
       <header class="block__header">
-        <h2>Overview</h2>
-        <p>My aim is to build simple and clean websites, just like this one!</p>
+        <h2 class="block__first--on--page">
+          <span class="branding">Contact</span>
+        </h2>
+        <p>Submit a query and I will reply as soon as possible!</p>
       </header>
 
-      <article class="grid grid--1x2 feature">
-        <div class="feature__content" data-aos="fade-right">
-          <h3 class="feature__heading">Introduction</h3>
-          <p>
-            Chances are if you are reading this, I have already reached out to
-            you. SX3 is run by me, Sean (blue jumper).
-          </p>
-          <p>
-            I am an enthusiastic web developer who enjoys creating brochure
-            websites and working on ecommerce related projects. I believe the
-            approach I take, and the platforms I use, allow me to minimise costs
-            for businesses that I reach out to :)
-          </p>
+      <div class="card--containter">
+        <div class="card">
+          <div class="card__body">
+            <form action="generate" method="POST" enctype="multipart/form-data">
+              <div class="form">
+                <input type="text" placeholder="Name*" class="input" />
+                <td>
+                  <input type="email" placeholder="Email*" class="input" />
+                </td>
+                <input type="text" placeholder="Phone" class="input" />
+                <textarea
+                  rows="5"
+                  placeholder="Your message..."
+                  class="message"
+                ></textarea>
+
+                <button
+                  id="Contact Button"
+                  class="btn btn--outline btn--block"
+                  type="submit"
+                  value="Submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div class="feature__content" data-aos="fade-right">
-          <img
-            class="feature__image"
-            src="images/us.jpg"
-            alt=""
-            data-aos="zoom-in"
-          />
-        </div>
-      </article>
-
-      <article class="grid grid--1x2 feature">
-        <div class="feature__content" data-aos="fade-right">
-          <h3 class="feature__heading">Brochure Websites</h3>
-          <p>
-            Brochure websites are exactly that, a brochure. These lightweight
-            websites do not rely on complex data management systems and are
-            ideal for providing local businesses with a web presence. Consumers
-            are returning to favouring websites over apps and social media
-            profiles, meaning a web presence is more important than ever.
-            According to a
-            <a
-              href="https://themeisle.com/blog/do-i-need-a-website-for-my-business/"
-              target="_blank"
-              class="underline effect"
-              >recent survey</a
-            >, 84% of today's consumers think a business with a website is more
-            credible than a business with only a social media profile.
-          </p>
-        </div>
-        <img
-          class="feature__image"
-          src="images/brochure.jpg"
-          alt=""
-          data-aos="zoom-in"
-        />
-      </article>
-
-      <article class="grid grid--1x2 feature">
-        <div class="feature__content" data-aos="fade-up">
-          <h3 class="feature__heading">Ecommerce</h3>
-          <p>
-            I have experience working with site auditing, SEO related projects
-            and ecommerce solutions through my own proffesional job. I would be
-            more then happy to consult on projects where possible, and would
-            never embark on a project out of my depth or that I felt I couldnt
-            have an impact on. Please see
-
-            <a href="" class="underline effect">here</a>
-            for more details!
-          </p>
-        </div>
-
-        <img
-          class="feature__image"
-          src="images/ecommerce.jpg"
-          alt=""
-          data-aos="zoom-in"
-        />
-      </article>
+      </div>
     </section>
 
     <footer class="block block--dark footer">

@@ -6,7 +6,7 @@
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
   --color-accent: #ff3400;
-  --color-headings: #1b0760;
+  --color-headings: #353839;
   --colr-body: #918ca4;
   --color-body-darker: #5c5577;
   --color-border: #ccc;
@@ -98,17 +98,6 @@ p {
 
 a {
   text-decoration: none;
-}
-
-.link {
-  font-size: 1.6rem;
-  color: #4267cf;
-  transition: color 0.3s;
-  text-decoration: underline;
-}
-
-.link:hover {
-  color: #32466b;
 }
 
 .link-arrow {
@@ -369,13 +358,13 @@ a {
   width: 100%;
   padding: 10px;
   margin: 0px;
-  border: 1px solid #ff3b3f;
+  border: 1px solid #353839;
   margin: 2rem auto;
 }
 .input:focus,
 .input:focus {
   outline: none;
-  border-bottom: 1px solid #ff3b3f;
+  border-bottom: 1px solid #353839;
 }
 
 ::placeholder {
@@ -392,11 +381,19 @@ a {
 /* Cards */
 /*------------------------------------------------------------*/
 
+.card--containter {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 12rem;
+}
 .card {
   border-radius: 7px;
   box-shadow: 0 0 20px 10px #f3f3f3;
   /* Border radius set to card element (parent). When colour of card__header changed to blue the element grows larger (overflow) than its parent container meaning it loses its rounded corners. By default overflow is visibile. To bring back rounded corners set overflow of parent to hidden. */
   overflow: hidden;
+  max-width: 500px;
+  margin-bottom: auto;
 }
 
 .card__header,
@@ -766,9 +763,7 @@ a {
 /*------------------------------------------------------------*/
 
 .block {
-  --padding-vertical: 6rem;
-  padding: var(--padding-vertical) 2rem;
-  /* Using "text-align: center;" here for the block header would mean every element we insert within the block would have it's text centered. Leads to layout mess ups for things like cards etc. Solution: Create new container for the header and center text there. Use <header> for semantics. */
+  padding: 2rem;
 }
 
 .block__heading {
@@ -820,7 +815,7 @@ a {
   /* Navigation bar has three elements, the toggler icon (hidden on desktop), the logo and an unordered list. Going to use flex to lay components out horizontally. When we add items to a flex container (.nav) they shrink by default so they can appear in one line. On mobile we want the menu items to appear on the second line below the navigation bar. To achieve this we give the list (.nav__list) a width of 100% which is 100% of the width of its parent (.nav), which is the entire navigation bar, so this list is going to stretch. Then we enable wrapping in our flex container (.nav) to allow the list to appear on the second line. */
   flex-wrap: wrap;
   /* Increase padding around logo and toggler. */
-  padding: 2rem 1rem;
+  padding: 1.4rem 1rem;
 
   /* Use align items to align items along the secondary axis.*/
   align-items: center;
@@ -843,6 +838,16 @@ a {
 }
 
 .nav__item > a:hover {
+  color: #fff;
+}
+
+.nav__link {
+  font-size: 1.6rem;
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
   color: #fff;
 }
 
@@ -1017,11 +1022,17 @@ a {
   margin: 12rem 0;
 }
 .feature__heading {
-  margin-top: 1rem 0;
+  margin-top: 0;
 }
 
 .feature__image {
   width: 100%;
+  border-radius: 2rem;
+}
+
+.image--center {
+  display: flex;
+  justify-content: center;
 }
 
 /* Margin for first .feature__content is too large at twelve. Target first .feature__content only and half the margin. */
@@ -1183,4 +1194,34 @@ header.is-sticky {
   width: 100%;
   z-index: 999;
   box-shadow: 0 2px 8px rgb(16 16 16 / 21%);
+}
+
+.underline {
+  text-decoration: none;
+  color: #4267cf;
+  transition: 0.3s;
+}
+.underline.effect {
+  position: relative;
+}
+
+.underline:hover {
+  color: #3452a5;
+}
+
+.underline.effect:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #3452a5;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.underline.effect:hover:before {
+  visibility: visible;
+  width: 100%;
 }
