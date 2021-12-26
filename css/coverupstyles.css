@@ -5,8 +5,8 @@
 :root {
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
-  --color-accent: #ff3400;
-  --color-headings: #353839;
+  --color-accent: #ff3b3f;
+  --color-headings: #555;
   --colr-body: #918ca4;
   --color-body-darker: #5c5577;
   --color-border: #ccc;
@@ -32,7 +32,7 @@
 
 /* Styling for when you highlight text. */
 ::selection {
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: #fff;
 }
 html {
@@ -100,15 +100,25 @@ a {
   text-decoration: none;
 }
 
+.link {
+  font-size: 1.5rem;
+
+  color: #393939;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
 .link-arrow {
   color: var(--color-accent);
-  text-transform: uppercase;
-  font-size: 2rem;
+
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .link-arrow::after {
-  content: "-->";
+  content: "\2192";
   /* Using px to ensure always a noticable gap before the arrow. */
   margin-left: 5px;
   /* Applies smooth transition to the margin which makes the arrow move. */
@@ -127,47 +137,6 @@ a {
 }
 
 /*------------------------------------------------------------*/
-/* Badges */
-/*------------------------------------------------------------*/
-
-/* Seperate structure from skin. */
-
-.badge {
-  border-radius: 20px;
-  padding: 0.5rem 2rem;
-  font-weight: 600;
-  /* Prevents badge wrapping onto new line */
-  white-space: nowrap;
-  font-size: 2rem;
-}
-
-.badge--primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.badge--secondary {
-  background: var(--color-secondary);
-  color: #fff;
-}
-
-.badge--small {
-  font-size: 1.6rem;
-  /* Styling for within plan. */
-  padding: 0.5rem 1.5rem;
-}
-
-@media screen and (min-width: 1024px) {
-  .badge {
-    font-size: 1.5rem;
-  }
-
-  .badge--small {
-    font-size: 1.2rem;
-  }
-}
-
-/*------------------------------------------------------------*/
 /* Lists */
 /*------------------------------------------------------------*/
 
@@ -177,10 +146,21 @@ a {
   padding-left: 0;
 }
 
+.list--secondary .list__item {
+  padding-left: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .list--inline .list__item {
   /* Inline block allows you to apply margins. */
   display: inline-block;
   margin-right: 2rem;
+}
+
+.list--tick {
+  list-style-image: url(../images/tick.svg);
+  padding-left: 3rem;
+  color: var(--color-headings);
 }
 
 .list--tick .list__item {
@@ -204,7 +184,7 @@ a {
 }
 
 .icon--primary {
-  fill: var(--color-primary);
+  fill: var(--color-accent);
 }
 
 .icon-container {
@@ -222,12 +202,12 @@ a {
 
 /* Following testimonial styling. */
 
-.icon-container--accent {
-  background-color: var(--color-accent);
-}
-
 .icon--white {
   fill: #fff;
+}
+
+.icon--black {
+  fill: #000;
 }
 
 .icon--small {
@@ -259,41 +239,14 @@ a {
   margin: 1rem 0;
 }
 
-/* Domain block, styling icons within buttons. */
-.btn .icon {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 1rem;
-  /*Align with button label. */
-  vertical-align: middle;
-}
-
-.btn--primary {
-  background-color: var(--color-primary);
-  color: #fff;
-}
-
-.btn--primary:hover {
-  /* Should use SAS to allow for variations rather then hardcode e.g. background-color: lighten(primary, 10%); */
-  background-color: #3a8ffd;
-}
-
 .btn--secondary {
-  background: var(--color-secondary);
-  color: #fff;
+  background: #fff;
+  color: #555;
 }
 
 .btn--secondary:hover {
-  background-color: #00c8eb;
-}
-
-.btn--accent {
-  background-color: var(--color-accent);
+  background-color: #555;
   color: #fff;
-}
-
-.btn--accent:hover {
-  background: #ec3000;
 }
 
 .btn--block {
@@ -309,7 +262,9 @@ a {
 }
 
 .btn--outline:hover {
-  background: var(--color-headings);
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent);
+
   color: #fff;
 }
 
@@ -319,75 +274,15 @@ a {
   }
 }
 
-/* Following callout styling. */
-
-.btn--stretched {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
-
-/*------------------------------------------------------------*/
-/* Inputs */
-/*------------------------------------------------------------*/
-
-.input {
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid #dcdcdc;
-  padding: 2rem 0;
-  margin: 2rem auto;
-}
-.message {
-  border-radius: 5px;
-  width: 100%;
-  padding: 10px;
-  margin: 0px;
-  border: 0;
-  border-bottom: 1px solid #dcdcdc;
-  margin: 2rem auto;
-}
-.message:focus {
-  outline: none;
-  border-radius: 5px;
-  width: 100%;
-  padding: 10px;
-  margin: 0px;
-  border: 1px solid #353839;
-  margin: 2rem auto;
-}
-.input:focus,
-.input:focus {
-  outline: none;
-  border-bottom: 1px solid #353839;
-}
-
-::placeholder {
-  color: #cdcbd7;
-}
-
-@media screen and (min-width: 1024px) {
-  .input {
-    font-size: 1.5rem;
-  }
-}
-
 /*------------------------------------------------------------*/
 /* Cards */
 /*------------------------------------------------------------*/
 
-.card--containter {
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 12rem;
-}
 .card {
   border-radius: 7px;
   box-shadow: 0 0 20px 10px #f3f3f3;
   /* Border radius set to card element (parent). When colour of card__header changed to blue the element grows larger (overflow) than its parent container meaning it loses its rounded corners. By default overflow is visibile. To bring back rounded corners set overflow of parent to hidden. */
   overflow: hidden;
-  max-width: 500px;
-  margin-bottom: auto;
 }
 
 .card__header,
@@ -401,196 +296,78 @@ a {
 }
 
 .card--primary .card__header {
-  background: var(--color-primary);
+  background: #555;
   color: #fff;
 }
 
 .card--secondary .card__header {
-  background: var(--color-secondary);
+  background: #555;
   color: #fff;
 }
 
-/* For plan styling. */
-
-.card--secondary .badge--secondary {
-  background: #02cdf1;
-}
-
-.card--primary .badge--primary {
-  background: #126de4;
-}
-
 /*------------------------------------------------------------*/
-/* Plan */
+/* products */
 /*------------------------------------------------------------*/
 
-.plan__name {
-  color: #fff;
-  /* Space above the text due to the default margin applied to h3 elements. */
-  margin: 0;
-  font-weight: 500;
-  font-size: 2.4rem;
-}
-
-.plan__price {
+.card__heading {
   font-size: 5rem;
 }
 
-.plan__billing-cycle {
-  font-size: 2.4rem;
-  font-weight: 300;
-  /* Make text softer. */
-  opacity: 0.8;
-  margin-right: 1rem;
-}
-
-.plan__description {
-  font-size: 2rem;
-  font-weight: 300;
-  /* Space letters slightly. */
-  letter-spacing: 1px;
-
-  /* Span element is inline by default so will wrap. */
-  display: block;
-}
-
-.plan .list__item {
+.products .list__item {
   margin-bottom: 2rem;
 }
 
 /* Using absoloute positioning for the popular icon. Should make parent container (.card__header) a releatively positioned element. */
 
-.plan--popular .card__header {
+.products--popular .card__header {
   position: relative;
 }
 
-/* Part of plans block styling. */
-/* Making a popular plan slightly bigger. */
+.products--popular .card__header::before {
+  content: url(../images/popular.svg);
+  width: 40px;
+  /* Inline element by defualt. */
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  /* Takes with of card and uses 5% of this value as the offset from the right. */
+  right: 5%;
+}
 
-.plan {
+/* Part of products block styling. */
+/* Making a popular products slightly bigger. */
+
+.products {
   transition: transform 0.2s ease-out;
 }
-.plan--popular {
+.products--popular {
   transform: scale(1.1);
 }
 
-.plan:hover {
+.products:hover {
   transform: scale(1.05);
 }
 
-/* Growing a popular plan by 5% is atually a reduction of 5% because we have already increased it to 10% larger so therefore must increase it to 15%. */
+/* Growing a popular products by 5% is atually a reduction of 5% because we have already increased it to 10% larger so therefore must increase it to 15%. */
 
-.plan--popular:hover {
+.products--popular:hover {
   transform: scale(1.15);
 }
 
 @media screen and (min-width: 1024px) {
-  .plan__name {
+  .products__name {
     font-size: 1.4rem;
   }
 
-  .plan__price {
+  .card__heading {
     font-size: 5rem;
   }
-
-  .plan__billing-cycle {
-    font-size: 1.6rem;
-  }
-
-  .plan__description {
-    font-size: 1.7rem;
-  }
-}
-
-/*------------------------------------------------------------*/
-/* Media Object */
-/*------------------------------------------------------------*/
-
-/* Media object = image/avatart on the left followed by title and some text on the right. */
-
-.media {
-  /* Use flex on container (media object) to lay elments horizontally. */
-  display: flex;
-  /* Following showcase block styling. */
-  margin-bottom: 4rem;
-}
-
-.media__title {
-  margin-top: 0;
-}
-
-.block--dark .media__title {
-  color: #fff;
-}
-
-.media__body {
-  margin: 0 2rem;
-}
-
-.media__image {
-  margin-top: 1rem;
 }
 
 .block--dark h1,
 .block--dark h2,
 .block--dark h3 {
   color: #fff;
-}
-
-/*------------------------------------------------------------*/
-/* Quotes */
-/*------------------------------------------------------------*/
-
-.quote {
-  font-size: 3rem;
-  font-style: italic;
-  color: var(--color-body-darker);
-  line-height: 1.3;
-}
-
-.quote__text::before {
-  content: open-quote;
-}
-
-.quote__text::after {
-  content: close-quote;
-}
-
-/* Always think to add a class for styling rather than relying on nesting. E.g. .quother__author as appose to .quote .media__title. */
-
-.quote__author {
-  font-size: 3rem;
-  font-weight: 500;
-  font-style: normal;
-  margin-bottom: 0;
-}
-
-.quote__organisation {
-  color: var(--color-headings);
-  opacity: 0.4;
-  font-size: 2rem;
-  font-style: normal;
-}
-
-/* Position line icon using relative positioning. Positions the element relative to itself without effecting other elements. */
-
-.quote__line {
-  position: relative;
-  bottom: 10px;
-}
-
-@media screen and (min-width: 1024px) {
-  .quote {
-    font-size: 2rem;
-  }
-
-  .quote__author {
-    font-size: 2.4rem;
-  }
-
-  .quote__organisation {
-    font-size: 1.6rem;
-  }
 }
 
 /*------------------------------------------------------------*/
@@ -611,93 +388,6 @@ a {
 @media screen and (min-width: 1024px) {
   .grid--1x3 {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/*------------------------------------------------------------*/
-/* Testimonials */
-/*------------------------------------------------------------*/
-
-.testimonial {
-  padding: 3rem;
-}
-
-.testimonial__image > img {
-  /* Child selector. Selects image within class. Usually avoid this approach but appropriate here. */
-  /* Image default width 400px. This prevents the columns being equal sizes at certain breakpoints. To make image responsive set width to 100% which makes it take up the full width of its column and ensures equal columns will be maintained. */
-  width: 100%;
-}
-
-/* Adding icon. Needs absolute positioning to stay fixed. To achieve need to place image and icon inside a container (.testimonial__image) which is relatively positioned. */
-.testimonial__image {
-  position: relative;
-}
-
-.testimonial__image > .icon-container {
-  position: absolute;
-  top: 3rem;
-  /* Icon width is set to 64px so to center use 32px. */
-  right: -32px;
-}
-
-@media screen and (min-width: 768px) {
-  .testimonial .quote,
-  .testimonial .quote__author {
-    font-size: 2.4rem;
-  }
-
-  .testimonial .quote {
-    margin-left: 6rem;
-  }
-}
-
-/*------------------------------------------------------------*/
-/* Call Outs */
-/*------------------------------------------------------------*/
-
-.callout {
-  padding: 4rem;
-  border: 5px;
-}
-
-.callout--primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.callout__heading {
-  color: #fff;
-  margin-top: 0;
-  font-size: 3rem;
-}
-
-/* The default for aligning items in a grid is stretch. To solve have to change the alignment of button in grid. */
-
-.callout .btn {
-  /* Aligns grid item horizontally. */
-  justify-self: center;
-  /* Aligns grid item vertically. */
-  align-self: center;
-}
-
-.callout__content {
-  text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-  .callout__content {
-    text-align: left;
-  }
-
-  .callout .btn {
-    /* Align button closer to text on tablet and above. */
-    justify-self: start;
-    margin: 0 2rem;
-  }
-
-  .callout .grid--1x2 {
-    /* The second column contains a much smaller button. To get rid of deadspace use the auto property for big screens. This allows the first column containing more content to take up more space and remove the redundant space after the button. */
-    grid-template-columns: 1fr auto;
   }
 }
 
@@ -746,7 +436,14 @@ a {
 /*------------------------------------------------------------*/
 
 .block {
-  padding: 2rem;
+  --padding-vertical: 2rem;
+  padding: var(--padding-vertical) 2rem;
+
+  /* Using "text-align: center;" here for the block header would mean every element we insert within the block would have it's text centered. Leads to layout mess ups for things like cards etc. Solution: Create new container for the header and center text there. Use <header> for semantics. */
+}
+
+.block__first--on--page {
+  margin-top: 10rem;
 }
 
 .block__heading {
@@ -759,7 +456,7 @@ a {
 }
 
 .block--dark {
-  background: #000;
+  background: #ff3b3f;
   color: #7b858b;
 }
 
@@ -787,10 +484,20 @@ a {
 /* Navigation Bar */
 /*------------------------------------------------------------*/
 
+/*Sticky Navigation bar */
+
+header.is-sticky {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgb(16 16 16 / 21%);
+}
 /* In terms of behaviour, this navigation bar is another collapisble component. Logo is wrapped in an anchor so when a user clicks it they are brought to the homepage of the website. */
 
 .nav {
-  background: #000;
+  background: #fff;
   /* By default flex direction is horizontal. */
   display: flex;
   /*Push first and last items to the sides and evenly distributre remaining space between items, this is for mobile. */
@@ -798,7 +505,7 @@ a {
   /* Navigation bar has three elements, the toggler icon (hidden on desktop), the logo and an unordered list. Going to use flex to lay components out horizontally. When we add items to a flex container (.nav) they shrink by default so they can appear in one line. On mobile we want the menu items to appear on the second line below the navigation bar. To achieve this we give the list (.nav__list) a width of 100% which is 100% of the width of its parent (.nav), which is the entire navigation bar, so this list is going to stretch. Then we enable wrapping in our flex container (.nav) to allow the list to appear on the second line. */
   flex-wrap: wrap;
   /* Increase padding around logo and toggler. */
-  padding: 1.4rem 1rem;
+  padding: 2rem 2rem;
 
   /* Use align items to align items along the secondary axis.*/
   align-items: center;
@@ -812,26 +519,22 @@ a {
 
 .nav__item {
   padding: 0.5rem 2rem;
-  border-bottom: solid 1px #222;
+  border-bottom: solid 1px #d2d0db;
+}
+
+.nav__item--dropdown {
+  padding: 0.5rem 2rem;
+  border-bottom: solid 1px #d2d0db;
+  color: #393939;
 }
 
 .nav__item > a {
-  color: #d2d0db;
-  transition: color 0.3s;
+  color: #393939;
+  transition: color 0.2s;
 }
 
 .nav__item > a:hover {
-  color: #fff;
-}
-
-.nav__link {
-  font-size: 1.6rem;
-  color: #d2d0db;
-  transition: color 0.3s;
-}
-
-.nav__link:hover {
-  color: #fff;
+  color: #ff3b3f;
 }
 
 /* Make nav collapsible = give it the .collapsible class and the list (content) the .collapsible__content class. */
@@ -845,7 +548,7 @@ a {
 .nav.collapsible--expanded .nav__toggler {
   /* No space between the first two classes means the element must have both these classes. */
   opacity: 1;
-  box-shadow: 0 0 0 3px #666;
+  box-shadow: 0 0 0 3px #d2d0db;
   border-radius: 5px;
 }
 
@@ -853,23 +556,8 @@ a {
 .nav__brand {
   transform: translateY(5px);
 }
+
 /* For desktop = hide toggler and remove 100% width of .nav__list and instead set to auto so it will stretch enough to fit the content and not appear on the second line. */
-
-.nav__item--dropdown {
-  padding: 0.5rem 2rem;
-
-  border-bottom: solid 1px #222;
-  color: #d2d0db;
-}
-
-.nav__item--dropdown > a:hover {
-  color: #fff;
-}
-
-.iconstyle {
-  color: #8e8c97;
-  vertical-align: middle;
-}
 
 @media screen and (min-width: 768px) {
   .nav__toggler {
@@ -880,15 +568,11 @@ a {
     width: auto;
     /* Lay horizontally. */
     display: flex;
-    font-size: 2rem;
+    font-size: 1.6rem;
 
     /* Make .nav__list visible. Basically set the conditions of the expanded class to always show the content. */
     max-height: 100%;
     opacity: 1;
-  }
-
-  .nav__item {
-    border: 0;
   }
 
   .nav__item,
@@ -915,7 +599,7 @@ a {
 
 .hero__tagline {
   font-size: 2rem;
-  color: #b9c3cf;
+  color: #767676;
   letter-spacing: 1px;
   margin: 2rem 0 5rem;
 }
@@ -925,17 +609,20 @@ a {
   width: 100%;
 }
 
+.hero__header {
+  margin-top: 15rem;
+}
+
 /* For styling --> start with more generic classes and then specialise further in you go. */
 /* Overriding original polygon. */
 /* End up deleting as fix from orignal source later in course but keeping code for reference.
-.hero {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-} */
+    .hero {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+    } */
 
 @media screen and (min-width: 768px) {
   .hero {
-    padding-top: 15rem;
-    padding-bottom: 15rem;
+    padding-top: 0;
   }
 
   .hero__content {
@@ -946,53 +633,16 @@ a {
 }
 
 /*------------------------------------------------------------*/
-/* Domain Block */
+/* Products Block */
 /*------------------------------------------------------------*/
 
-.block-domain .input-group {
-  box-shadow: 0 0 30px 20px #e6ebee;
-  border: 0;
-  /* Input group does not take up entire screen, need to max width and then set horizontal margins to auto to evenly distribute the space on either side of the search bar. */
-
-  margin: 4rem auto;
-  max-width: 670px;
-}
-
-.block-domain__prices {
-  color: var(--color-headings);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* Sets height of rows. */
-  grid-template-rows: repeat(2, 6rem);
-  font-size: 2rem;
-  font-weight: 600;
-  /* Align items within the grid. (ITEMS is for aligning within a grid. (In this case justify-items is used for the horizontal alignment. */
-  justify-items: center;
-  /* List does not take up entire screen, need to max width and then set horizontal margins to auto to evenly distribute the space on either side of the list. */
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* For big sreen want to lay prices out horizontally in one line. */
-/* Possible solution = grid-template-columns: repeat(6, 1fr); but then in future if we add a new price we have to remember to come back here and update to 7. Instead of using hardcoded value and use a predefined value called auto-fit. With auto-fit the grid creates as many columns as required but we cannot us a fr unit in conjunction with autofit. Should avoid using an absoloute value such as 100px also. Instead use the minmax function to provide a range. Provide px value as minimum and fr value for maximum. This means if there is extra space available, it will be equally distributed to the columns. */
-
-@media screen and (min-width: 768px) {
-  .block-domain__prices {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  }
-}
-
-/*------------------------------------------------------------*/
-/* Plans Block */
-/*------------------------------------------------------------*/
-
-.block-plans .grid {
+.block-products .grid {
   /* Setting distance between elements in the grid. */
   gap: 8rem 4rem;
 }
 
 /* Stop cards stretching and center card. */
-.block-plans .card {
+.block-products .card {
   max-width: 500px;
   margin: 0 auto;
 }
@@ -1006,17 +656,11 @@ a {
   margin: 12rem 0;
 }
 .feature__heading {
-  margin-top: 0;
+  margin-top: 1rem 0;
 }
 
 .feature__image {
   width: 100%;
-  border-radius: 2rem;
-}
-
-.image--center {
-  display: flex;
-  justify-content: center;
 }
 
 /* Margin for first .feature__content is too large at twelve. Target first .feature__content only and half the margin. */
@@ -1028,34 +672,6 @@ a {
 @media screen and (min-width: 768px) {
   .feature:nth-of-type(even) .feature__content {
     order: 2;
-  }
-}
-
-/*------------------------------------------------------------*/
-/* Showcase Block */
-/*------------------------------------------------------------*/
-
-/* Come back for image optimisation and how to maintain grid. */
-
-.block--showcase__image {
-  width: 100%;
-}
-
-/* Stop the image rezing on tablet and allow it to flow out of the screen. */
-/* This messes up the columns as image is showed to its full size, offsetting the second column. */
-/* Use 50% instead of 1fr as 50% of the container is used. The width of the column is not determined by the width of the content (image). */
-/* While this ensures two equal columns it can cause the image to spill into the second column and be under the text. */
-/* To prevent we need to align image to the right side of its column (justify-self: end;). */
-
-@media screen and (min-width: 768px) {
-  .block-showcase .grid {
-    grid-template-columns: 50% 50%;
-  }
-  .block--showcase__image {
-    width: auto;
-    /* Stop image invariably growing. */
-    max-width: 700px;
-    justify-self: end;
   }
 }
 
@@ -1101,8 +717,9 @@ a {
 /* Think width: 100% think max width. */
 
 .footer__brand img {
-  width: 100%;
-  max-width: 230px;
+  width: 50%;
+  max-width: 50px;
+  margin-bottom: 10px;
 }
 
 .footer__copyright {
@@ -1154,60 +771,70 @@ a {
   }
 }
 
-/* Troubleshooting */
-
-/* When troubleshooting you should isolate the problem. Take the component into a new html file and inspect in dev tools at different resolutions. Add borders etc around troubling components. Delete none troubling components. */
-/* In this orginal code for the domain block the input group shrunk beneath the button, meaning the button trailed off the screen. */
-/* This occured because the input grew larger then its parent element. */
-/* This occurs because we have .input-group .input { flex-grow: 1; } which allows the input group to grow to take up all of the available space and pusht the button to the end of the input group. */
-/* We must add .input-group .input { flex-grow: 1; width:0; } so that the flex-grow property will set the width of the group instead of a browser generated value. */
-
+/*------------------------------------------------------------*/
 /* My Inclusions */
+/*------------------------------------------------------------*/
+
+/*------------------------------------------------------------*/
+/* General */
+/*------------------------------------------------------------*/
 
 .image--rounded {
   border-radius: 30px;
-  height: 80%;
-  width: 90%;
-  margin-top: 5rem;
 }
 
-header.is-sticky {
-  position: fixed;
-  left: 0;
-  top: 0;
+.branding {
+  color: var(--color-accent);
+}
+
+.iconstyle {
+  color: var(--color-accent);
+  vertical-align: middle;
+}
+
+/*------------------------------------------------------------*/
+/* Inputs */
+/*------------------------------------------------------------*/
+
+.input {
   width: 100%;
-  z-index: 999;
-  box-shadow: 0 2px 8px rgb(16 16 16 / 21%);
+  border: 0;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 2rem 0;
+  margin: 2rem auto;
 }
-
-.underline {
-  text-decoration: none;
-  color: #4267cf;
-  transition: 0.3s;
-}
-.underline.effect {
-  position: relative;
-}
-
-.underline:hover {
-  color: #3452a5;
-}
-
-.underline.effect:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #3452a5;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.underline.effect:hover:before {
-  visibility: visible;
+.message {
+  border-radius: 5px;
   width: 100%;
+  padding: 10px;
+  margin: 0px;
+  border: 0;
+  border-bottom: 1px solid #dcdcdc;
+  margin: 2rem auto;
+}
+.message:focus {
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid #ff3b3f;
+  margin: 2rem auto;
+}
+.input:focus,
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #ff3b3f;
+}
+
+::placeholder {
+  color: #cdcbd7;
+}
+
+@media screen and (min-width: 1024px) {
+  .input {
+    font-size: 1.5rem;
+  }
 }
 
 /*------------------------------------------------------------*/
@@ -1252,12 +879,11 @@ header.is-sticky {
 .slideshow .slideshow__slide .slideshow__info {
   position: absolute;
   bottom: 0;
-
-  padding: 60px 30px;
+  padding: 15px 30px;
 }
 
 .slideshow .slideshow__slide .slideshow__info .slideshow__title {
-  color: #000;
+  color: #fff;
   font-size: 4rem;
   text-transform: uppercase;
   font-weight: bold;
@@ -1265,12 +891,11 @@ header.is-sticky {
 
 .slideshow .slideshow__slide .slideshow__info .slideshow__caption {
   color: #fff;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.1);
   font-size: 1.6rem;
   width: 60%;
   padding: 10px;
   border-radius: 4px;
-  right: 0;
 }
 
 .slideshow .slideshow__navigation {
@@ -1283,7 +908,7 @@ header.is-sticky {
 }
 
 .slideshow .slideshow__navigation .slideshow__btn {
-  background: #777;
+  background: rgba(255, 255, 255, 0.5);
   width: 12px;
   height: 12px;
   margin: 10px;
@@ -1293,7 +918,7 @@ header.is-sticky {
 
 .slideshow .slideshow__navigation .slideshow__btn.active {
   background: #ff3b3f;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 820px) {
@@ -1378,7 +1003,4 @@ header.is-sticky {
   .slideshow .slideshow__navigation {
     bottom: 10px;
   }
-}
-.linky {
-  color: #fff;
 }
