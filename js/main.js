@@ -5,7 +5,6 @@ collapsibles.forEach((item) =>
   })
 );
 
-
 // Slideshow
 
 var slideshow__slides = document.querySelectorAll(".slideshow__slide");
@@ -55,7 +54,7 @@ var repeat = function (activeClass) {
         return;
       }
       repeater();
-    }, 10000);
+    }, 5000);
   };
   repeater();
 };
