@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | SD</title>
+    <!-- add icon link -->
+    <link rel="icon" href="/images/tab icon.png" />
+    <meta
+      name="description"
+      content="Simple site solutions offers a range of services from custom web design to ecommerce site auditing and SEO management."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <links
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <header>
+  <nav class="nav collapsible">
+    <span class="nav__item">
+      <a href="/"> &lt;/&gt; | SX4 </a>
+    </span>
+
+    <svg class="icon icon--white nav__toggler">
+      <use href="images/sprite.svg#menu"></use>
+    </svg>
+
+    <ul class="list nav__list collapsible__content">
+      <li class="nav__item"><a href="/">Home</a></li>
+      <li class="nav__item"><a href="/contact/">Contact</a></li>
+      <li class="dropdown nav__item--dropdown collapsible">
+        <a>Services<i class="material-icons iconstyle"> expand_more </i></a>
+
+        <div class="collapsible__content">
+          <ul class="list">
+            <li>
+              <a class="nav__link" href="/web-design/">Web Design</a>
+            </li>
+            <li>
+              <a class="nav__link" href="/ecommerce/">Ecommerce</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+    
+<section class="block container">
+  <header class="block__header">
+    <h2 class="block__first--on--page">
+      <span class="branding">Contact</span>
+    </h2>
+    <p>Submit a query and I will reply as soon as possible!</p>
+  </header>
+
+  <div class="card--containter">
+    <div class="card">
+      <div class="card__body">
+        <form
+          action="https://formspree.io/f/mayveqvp"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form">
+            <input type="text" name="Name" placeholder="Name*" class="input" />
+            <td>
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email*"
+                class="input"
+              />
+            </td>
+            <input type="text" name="Phone" placeholder="Phone" class="input" />
+            <textarea
+              rows="5"
+              name="Message"
+              placeholder="Your message..."
+              class="message"
+            ></textarea>
+
+            <button
+              id="Contact Button"
+              class="btn btn--outline btn--block"
+              type="submit"
+              value="Submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer class="block block--dark footer">
+  <div class="container grid footer__sections">
+    <section class="collapsible collapsible--expanded footer__section">
+      <header class="collapsible__header">
+        <h2 class="collapsible__heading footer__heading">Company</h2>
+        <svg class="icon icon--white collapsible-icon">
+          <use href="images/sprite.svg#chevron"></use>
+        </svg>
+      </header>
+      <div class="collapsible__content">
+        <ul class="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="collapsible footer__section">
+      <header class="collapsible__header">
+        <h2 class="collapsible__heading footer__heading">Services</h2>
+        <svg class="icon icon--white collapsible-icon">
+          <use href="images/sprite.svg#chevron"></use>
+        </svg>
+      </header>
+      <div class="collapsible__content">
+        <ul class="list">
+          <li><a href="web-design.html">Web Design</a></li>
+          <li><a href="ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="footer__brand">
+      <h2 class="footer__heading">SX4 | &lt;/&gt;</h2>
+      <p class="footer__copyright">2021</p>
+    </section>
+  </div>
+</footer>
+
+
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    
+  </body>
+</html>
