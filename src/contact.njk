@@ -1,0 +1,53 @@
+---
+title: Contact | SD
+layout: "base.njk"
+---
+
+<section class="block container">
+  <header class="block__header">
+    <h2 class="block__first--on--page">
+      <span class="branding">Contact</span>
+    </h2>
+    <p>Submit a query and I will reply as soon as possible!</p>
+  </header>
+
+  <div class="card--containter">
+    <div class="card">
+      <div class="card__body">
+        <form
+          action="https://formspree.io/f/mayveqvp"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form">
+            <input type="text" name="Name" placeholder="Name*" class="input" />
+            <td>
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email*"
+                class="input"
+              />
+            </td>
+            <input type="text" name="Phone" placeholder="Phone" class="input" />
+            <textarea
+              rows="5"
+              name="Message"
+              placeholder="Your message..."
+              class="message"
+            ></textarea>
+
+            <button
+              id="Contact Button"
+              class="btn btn--outline btn--block"
+              type="submit"
+              value="Submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

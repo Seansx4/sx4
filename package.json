@@ -1,15 +1,25 @@
 {
   "name": "simplesitesolutionsx3",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"# personal\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
     "parcel-bundler": "^1.12.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seansx4/Sean-Develops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Seansx4/Sean-Develops/issues"
+  },
+  "homepage": "https://github.com/Seansx4/Sean-Develops#readme"
 }
