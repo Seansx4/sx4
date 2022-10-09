@@ -34,6 +34,7 @@
 html {
   /* Font Size is 16px by default. 1rem is 1 x 16 so 16pxs. Set to 62.5% so 62.5% of 16px = 10pxs. Therefore 1rem is now 10pxs. */
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -187,7 +188,8 @@ a {
 }
 
 .btn--secondary:hover {
-  background: #ec3000;
+  background: #bd2600;
+  border: 2px solid #bd2600;
 }
 
 
@@ -250,13 +252,17 @@ a {
   .block-products .grid {
     /* Setting distance between elements in the grid. */
     gap: 8rem 4rem;
+    margin-top: 6rem;
   }
   
   /* Stop cards stretching and center card. */
-  .block-products .card {
+  .block-products .card,
+  .contact .card {
     max-width: 500px;
     margin: 0 auto;
   }
+
+  
 
   
 
@@ -455,7 +461,7 @@ a {
 .block--banner {
   background: #555;
   color: #7b858b;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .block--banner .block__heading {
@@ -566,6 +572,8 @@ a {
   list-style-image: url(/images/tick.svg);
 
   color: var(--color-headings);
+  
+  margin-bottom: 5rem;
 }
 
 

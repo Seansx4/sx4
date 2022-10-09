@@ -4,14 +4,6 @@ layout: "base.njk"
 ---
 
 <section class="block container">
-  <ul class="benefits__list">
-    <li class="benefits__item">Custom Coded Websites</li>
-    <li class="benefits__item">No Monthly Fee</li>
-    <li class="benefits__item">Free SSL Security Certificate</li>
-    <li class="benefits__item">Direct Contact</li>
-  </ul>
-</section>
-<section class="block container">
   <header class="block__header">
     <h2>Website Design</h2>
   </header>
@@ -53,7 +45,10 @@ layout: "base.njk"
           businesses.
         </li>
       </ul>
-      <button class="btn btn--outline">Why chose me?</button>
+
+      <a href="#why me">
+        <button class="btn btn--outline">Why chose me?</button></a
+      >
     </div>
     <img
       class="feature__image"
@@ -88,8 +83,9 @@ layout: "base.njk"
           are user friendly on mobile, tablet and desktop devices.
         </li>
       </ul>
-
-      <button class="btn btn--outline">View Templates</button>
+      <a href="#templates">
+        <button class="btn btn--outline">View Templates</button></a
+      >
     </div>
     <img
       class="feature__image"
@@ -98,9 +94,17 @@ layout: "base.njk"
     />
   </article>
 </section>
+<section class="block container" id="templates" data-aos="zoom-in">
+  <ul class="benefits__list">
+    <li class="benefits__item">Custom Coded Websites</li>
+    <li class="benefits__item">No Monthly Fee</li>
+    <li class="benefits__item">Free SSL Security Certificate</li>
+    <li class="benefits__item">Direct Contact</li>
+  </ul>
+</section>
 
 <section class="block block--skewed-left block-products">
-  <div data-aos="fade-right" class="container aos-init aos-animate">
+  <div class="container">
     <header class="block__header">
       <h2>Website Templates</h2>
     </header>
@@ -197,7 +201,7 @@ layout: "base.njk"
   </div>
 </section>
 
-<section class="block container">
+<section class="block container" id="why me">
   <header class="block__header">
     <h2>Why choose Sean Develops?</h2>
   </header>

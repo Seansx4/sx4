@@ -12,41 +12,52 @@ layout: "base.njk"
   </header>
 
   <div class="card--containter">
-    <div class="card">
-      <div class="card__body">
-        <form
-          action="https://formspree.io/f/mayveqvp"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <div class="form">
-            <input type="text" name="Name" placeholder="Name*" class="input" />
-            <td>
+    <div class="contact">
+      <div class="card">
+        <div class="card__body">
+          <form
+            action="https://formspree.io/f/mayveqvp"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form">
               <input
-                type="email"
-                name="Email"
-                placeholder="Email*"
+                type="text"
+                name="Name"
+                placeholder="Name*"
                 class="input"
               />
-            </td>
-            <input type="text" name="Phone" placeholder="Phone" class="input" />
-            <textarea
-              rows="5"
-              name="Message"
-              placeholder="Your message..."
-              class="message"
-            ></textarea>
-
-            <button
-              id="Contact Button"
-              class="btn btn--outline btn--block"
-              type="submit"
-              value="Submit"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+              <td>
+                <input
+                  type="email"
+                  name="Email"
+                  placeholder="Email*"
+                  class="input"
+                />
+              </td>
+              <input
+                type="text"
+                name="Phone"
+                placeholder="Phone"
+                class="input"
+              />
+              <textarea
+                rows="5"
+                name="Message"
+                placeholder="Your message..."
+                class="message"
+              ></textarea>
+              <button
+                id="Contact Button"
+                class="btn btn--outline btn--block"
+                type="submit"
+                value="Submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
