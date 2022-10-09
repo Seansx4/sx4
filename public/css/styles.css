@@ -97,6 +97,38 @@ a {
   text-decoration: none;
 }
 
+
+.link-arrow {
+
+  display: block;
+  text-align: center;
+  /* color: var(--color-accent); */
+  color: #E62F00;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 6rem;
+  text-transform: uppercase;
+  
+}
+
+.link-arrow::after {
+  content: "\2192";
+  /* Using px to ensure always a noticable gap before the arrow. */
+  margin-left: 5px;
+  /* Applies smooth transition to the margin which makes the arrow move. */
+  transition: margin 0.15s;
+}
+
+.link-arrow:hover::after {
+  /* Targets the margin. */
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
+  }
+}
 /*------------------------------------------------------------*/
 /* Lists */
 /*------------------------------------------------------------*/
@@ -704,9 +736,10 @@ a {
   margin-top: 6rem;
 }
 
-.feature__content .btn{
+.feature__content .btn {
   display: block;
   margin: 0 auto;
+  margin-top: 5rem;
 }
 
 /* Swap the order of the every second (even) .feature__content around. */
