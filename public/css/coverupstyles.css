@@ -1,0 +1,1006 @@
+/*------------------------------------------------------------*/
+/* Universal */
+/*------------------------------------------------------------*/
+
+:root {
+    --color-primary: #2584ff;
+    --color-secondary: #00d9ff;
+    --color-accent: #ff3b3f;
+    --color-headings: #555;
+    --colr-body: #918ca4;
+    --color-body-darker: #5c5577;
+    --color-border: #ccc;
+    --border-radius: 30px;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+  
+  /* To stop our content stretching within the block when screen size is increased. */
+  /* Text is left aligned in container by default. Set 0 vertical margin and auto horizontal margin which means if there is extra space, the space will be evenly distributed to the sides of the content. */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Typography */
+  /*------------------------------------------------------------*/
+  
+  /* Styling for when you highlight text. */
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  html {
+    /* Font Size is 16px by default. 1rem is 1 x 16 so 16pxs. Set to 62.5% so 62.5% of 16px = 10pxs. Therefore 1rem is now 10pxs. */
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: var(--colr-body);
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    color: var(--color-headings);
+    margin-bottom: 1rem;
+    /*Hero styling. */
+    line-height: 1.1;
+  }
+  
+  h1 {
+    font-size: 6rem;
+  }
+  
+  h2 {
+    font-size: 4rem;
+  }
+  
+  h3 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  
+  p {
+    /* Allow heading elements to dictate margin. */
+    margin-top: 0;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    body {
+      font-size: 1.8rem;
+    }
+  
+    h1 {
+      font-size: 8rem;
+    }
+  
+    h2 {
+      font-size: 4rem;
+    }
+  
+    h3 {
+      font-size: 2.4rem;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Links */
+  /*------------------------------------------------------------*/
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .link {
+    font-size: 1.5rem;
+  
+    color: #393939;
+  }
+  
+  .link:hover {
+    color: var(--color-accent);
+  }
+  
+  .link-arrow {
+    color: var(--color-accent);
+  
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .link-arrow::after {
+    content: "\2192";
+    /* Using px to ensure always a noticable gap before the arrow. */
+    margin-left: 5px;
+    /* Applies smooth transition to the margin which makes the arrow move. */
+    transition: margin 0.15s;
+  }
+  
+  .link-arrow:hover::after {
+    /* Targets the margin. */
+    margin-left: 10px;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .link-arrow {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Lists */
+  /*------------------------------------------------------------*/
+  
+  .list {
+    /* Remove default bullet point and left margin. */
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .list--secondary .list__item {
+    padding-left: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .list--inline .list__item {
+    /* Inline block allows you to apply margins. */
+    display: inline-block;
+    margin-right: 2rem;
+  }
+  
+  .list--tick {
+    list-style-image: url(../images/tick.svg);
+    padding-left: 3rem;
+    color: var(--color-headings);
+  }
+  
+  .list--tick .list__item {
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .list--tick .list__item {
+      padding-left: 0;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Icons */
+  /*------------------------------------------------------------*/
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon--primary {
+    fill: var(--color-accent);
+  }
+  
+  .icon-container {
+    background-color: #f3f9fa;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    /* This container is a span. Spans are inline elements and width and height have no effect on inline elements. We use inline-flex for positioning. */
+    display: inline-flex;
+    /* Aligning along the primary axis which by default is the X axis. */
+    justify-content: center;
+    /* Aligning along the secondary axis which by default is the Y axis. */
+    align-items: center;
+  }
+  
+  /* Following testimonial styling. */
+  
+  .icon--white {
+    fill: #fff;
+  }
+  
+  .icon--black {
+    fill: #000;
+  }
+  
+  .icon--small {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Buttons */
+  /*------------------------------------------------------------*/
+  
+  /* We have buttons which stretch to just include their internal content and we have buttons which stretch to take up all of the available space (block button). */
+  
+  /* Anchor elements are not centered in the button and the button is wider then the screen. This happens because box sizing has not been set so the horizontal padding we have set is added ontop of the 100% value we have specified for width. This does not happen to the button element because by default browsers set box sizing of button elements to border-box. Fix for this specied at the top of the stylesheet using the universal selector (*). */
+  
+  .btn {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* Horizontal padding set to 4% of view port. This is so when the search bar is shrunk on mobile the search button dynamically fits. */
+    padding: 2rem 4vw;
+    border: 0;
+    border-radius: 40px;
+    cursor: pointer;
+    outline: 0;
+    /* Prevent text of button wrapping onto second line. */
+    white-space: nowrap;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .btn--secondary {
+    background: #fff;
+    color: #555;
+  }
+  
+  .btn--secondary:hover {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .btn--block {
+    width: 100%;
+    /* Anchor elements are inline by default so giving them a width won't work hence display is changed to inline block. */
+    display: inline-block;
+  }
+  
+  .btn--outline {
+    background: #fff;
+    color: var(--color-headings);
+    border: 2px solid var(--color-headings);
+  }
+  
+  .btn--outline:hover {
+    background: var(--color-accent);
+    border: 2px solid var(--color-accent);
+  
+    color: #fff;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .btn {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Cards */
+  /*------------------------------------------------------------*/
+  
+  .card {
+    border-radius: 7px;
+    box-shadow: 0 0 20px 10px #f3f3f3;
+    /* Border radius set to card element (parent). When colour of card__header changed to blue the element grows larger (overflow) than its parent container meaning it loses its rounded corners. By default overflow is visibile. To bring back rounded corners set overflow of parent to hidden. */
+    overflow: hidden;
+  }
+  
+  .card__header,
+  .card__body {
+    /* Make sure elements line up. */
+    padding: 2rem 3rem;
+  }
+  
+  .card__body {
+    background: #fff;
+  }
+  
+  .card--primary .card__header {
+    background: #555;
+    color: #fff;
+  }
+  
+  .card--secondary .card__header {
+    background: #555;
+    color: #fff;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* products */
+  /*------------------------------------------------------------*/
+  
+  .card__heading {
+    font-size: 5rem;
+  }
+  
+  .products .list__item {
+    margin-bottom: 2rem;
+  }
+  
+  /* Using absoloute positioning for the popular icon. Should make parent container (.card__header) a releatively positioned element. */
+  
+  .products--popular .card__header {
+    position: relative;
+  }
+  
+  .products--popular .card__header::before {
+    content: url(../images/popular.svg);
+    width: 40px;
+    /* Inline element by defualt. */
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    /* Takes with of card and uses 5% of this value as the offset from the right. */
+    right: 5%;
+  }
+  
+  /* Part of products block styling. */
+  /* Making a popular products slightly bigger. */
+  
+  .products {
+    transition: transform 0.2s ease-out;
+  }
+  .products--popular {
+    transform: scale(1.1);
+  }
+  
+  .products:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Growing a popular products by 5% is atually a reduction of 5% because we have already increased it to 10% larger so therefore must increase it to 15%. */
+  
+  .products--popular:hover {
+    transform: scale(1.15);
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .products__name {
+      font-size: 1.4rem;
+    }
+  
+    .card__heading {
+      font-size: 5rem;
+    }
+  }
+  
+  .block--dark h1,
+  .block--dark h2,
+  .block--dark h3 {
+    color: #fff;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Grids */
+  /*------------------------------------------------------------*/
+  
+  .grid {
+    display: grid;
+  }
+  
+  @media screen and (min-width: 768px) {
+    /* Class only activates if media query is met. Takes all the available space, divides it by 2 and gives each column an equal slice. */
+    .grid--1x2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .grid--1x3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Collapsibles */
+  /*------------------------------------------------------------*/
+  
+  /* Use flex to layout items horizontally or vertically. */
+  
+  .collapsible__header {
+    display: flex;
+    /* Pushes content to edge of container and adds space between. */
+    justify-content: space-between;
+  }
+  .collapsible__heading {
+    margin-top: 0;
+    font-size: 3rem;
+  }
+  
+  .collapsible-icon {
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+  }
+  
+  .collapsible__content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    /* Use all to anaimate multiple properties. */
+    transition: all 0.3s;
+  }
+  
+  .collapsible--expanded .collapsible-icon {
+    transform: rotate(0);
+  }
+  
+  .collapsible--expanded .collapsible__content {
+    /* Dynamically set to height of content. */
+    max-height: 100vh;
+    /* Gives smooth transition. */
+    opacity: 1;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Blocks */
+  /*------------------------------------------------------------*/
+  
+  .block {
+    --padding-vertical: 2rem;
+    padding: var(--padding-vertical) 2rem;
+  
+    /* Using "text-align: center;" here for the block header would mean every element we insert within the block would have it's text centered. Leads to layout mess ups for things like cards etc. Solution: Create new container for the header and center text there. Use <header> for semantics. */
+  }
+  
+  .block__first--on--page {
+    margin-top: 10rem;
+  }
+  
+  .block__heading {
+    margin-top: 0;
+  }
+  
+  .block__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .block--dark {
+    background: #ff3b3f;
+    color: #7b858b;
+  }
+  
+  .block--dark .block__heading {
+    color: #fff;
+  }
+  
+  /* Use the clip path generator website clippy. */
+  /* Each paired percentages between the commas represents a corner of the image starting from top left with first being X offset and second being Y offset. */
+  
+  .block--skewed-right {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 97%);
+    /* Extra padding to compensate for padding lost through clipping. Declare constant within scope of parent element means it is visible to children elements. Use the calculate function to add to the constant so if the constant is changed in the block element it is dynamically accounted for in the skewed element styling. */
+    padding-bottom: calc(var(--padding-vertical) + 4rem);
+  }
+  
+  .block--skewed-left {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 97%, 0% 100%);
+    padding-bottom: calc(var(--padding-vertical) + 4rem);
+  }
+  
+  /* Can't apply container class to dark blocks as it contains the width of the block, which when coloured black is obvious. Instead need to wrap block content in a div with a class of container as div will take up entire width of screen while also containing content. */
+  
+  /*------------------------------------------------------------*/
+  /* Navigation Bar */
+  /*------------------------------------------------------------*/
+  
+  /*Sticky Navigation bar */
+  
+  header.is-sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgb(16 16 16 / 21%);
+  }
+  /* In terms of behaviour, this navigation bar is another collapisble component. Logo is wrapped in an anchor so when a user clicks it they are brought to the homepage of the website. */
+  
+  .nav {
+    background: #fff;
+    /* By default flex direction is horizontal. */
+    display: flex;
+    /*Push first and last items to the sides and evenly distributre remaining space between items, this is for mobile. */
+    justify-content: space-between;
+    /* Navigation bar has three elements, the toggler icon (hidden on desktop), the logo and an unordered list. Going to use flex to lay components out horizontally. When we add items to a flex container (.nav) they shrink by default so they can appear in one line. On mobile we want the menu items to appear on the second line below the navigation bar. To achieve this we give the list (.nav__list) a width of 100% which is 100% of the width of its parent (.nav), which is the entire navigation bar, so this list is going to stretch. Then we enable wrapping in our flex container (.nav) to allow the list to appear on the second line. */
+    flex-wrap: wrap;
+    /* Increase padding around logo and toggler. */
+    padding: 2rem 2rem;
+  
+    /* Use align items to align items along the secondary axis.*/
+    align-items: center;
+  }
+  
+  .nav__list {
+    width: 100%;
+    /* Use dev tools, highlight element, check its margins and remove. */
+    margin: 0;
+  }
+  
+  .nav__item {
+    padding: 0.5rem 2rem;
+    border-bottom: solid 1px #d2d0db;
+  }
+  
+  .nav__item--dropdown {
+    padding: 0.5rem 2rem;
+    border-bottom: solid 1px #d2d0db;
+    color: #393939;
+  }
+  
+  .nav__item > a {
+    color: #393939;
+    transition: color 0.2s;
+  }
+  
+  .nav__item > a:hover {
+    color: #ff3b3f;
+  }
+  
+  /* Make nav collapsible = give it the .collapsible class and the list (content) the .collapsible__content class. */
+  
+  .nav__toggler {
+    opacity: 0.5;
+    transition: box-shadow 0.15s;
+    cursor: pointer;
+  }
+  
+  .nav.collapsible--expanded .nav__toggler {
+    /* No space between the first two classes means the element must have both these classes. */
+    opacity: 1;
+    box-shadow: 0 0 0 3px #d2d0db;
+    border-radius: 5px;
+  }
+  
+  /* Hack to fix dodgey bottom margin of logo. */
+  .nav__brand {
+    transform: translateY(5px);
+  }
+  
+  /* For desktop = hide toggler and remove 100% width of .nav__list and instead set to auto so it will stretch enough to fit the content and not appear on the second line. */
+  
+  @media screen and (min-width: 768px) {
+    .nav__toggler {
+      display: none;
+    }
+  
+    .nav__list {
+      width: auto;
+      /* Lay horizontally. */
+      display: flex;
+      font-size: 1.6rem;
+  
+      /* Make .nav__list visible. Basically set the conditions of the expanded class to always show the content. */
+      max-height: 100%;
+      opacity: 1;
+    }
+  
+    .nav__item,
+    .nav__item--dropdown {
+      border: 0;
+    }
+  
+    /*Addition for hover effect */
+  
+    .dropdown > .collapsible__content {
+      display: none;
+    }
+  
+    .dropdown:hover > .collapsible__content {
+      display: contents;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Hero (Banner) */
+  /*------------------------------------------------------------*/
+  
+  /* Desktop = Dark block skewed left with a 2 column grid. First column has content, second has image. Mobile = 1 column grid. */
+  
+  .hero__tagline {
+    font-size: 2rem;
+    color: #767676;
+    letter-spacing: 1px;
+    margin: 2rem 0 5rem;
+  }
+  
+  .hero__image {
+    /* Image too large leading to horizontal scrolling. Have to set width to 100%. */
+    width: 100%;
+  }
+  
+  .hero__header {
+    margin-top: 15rem;
+  }
+  
+  /* For styling --> start with more generic classes and then specialise further in you go. */
+  /* Overriding original polygon. */
+  /* End up deleting as fix from orignal source later in course but keeping code for reference.
+    .hero {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+    } */
+  
+  @media screen and (min-width: 768px) {
+    .hero {
+      padding-top: 0;
+    }
+  
+    .hero__content {
+      text-align: left;
+      /* On widescreens content should be aligned vertically in the middle. Content element is inside a grid. Want to align the item. */
+      align-self: center;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Products Block */
+  /*------------------------------------------------------------*/
+  
+  .block-products .grid {
+    /* Setting distance between elements in the grid. */
+    gap: 8rem 4rem;
+  }
+  
+  /* Stop cards stretching and center card. */
+  .block-products .card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Features Block */
+  /*------------------------------------------------------------*/
+  
+  .feature {
+    gap: 4rem 2rem;
+    margin: 12rem 0;
+  }
+  .feature__heading {
+    margin-top: 1rem 0;
+  }
+  
+  .feature__image {
+    width: 100%;
+  }
+  
+  /* Margin for first .feature__content is too large at twelve. Target first .feature__content only and half the margin. */
+  
+  .feature:first-of-type {
+    margin-top: 6rem;
+  }
+  /* Swap the order of the every second (even) .feature__content around. */
+  @media screen and (min-width: 768px) {
+    .feature:nth-of-type(even) .feature__content {
+      order: 2;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Footer */
+  /*------------------------------------------------------------*/
+  
+  .footer {
+    background-color: #232323;
+  }
+  
+  .footer a {
+    color: #777;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #fff;
+  }
+  .footer__section {
+    padding: 2rem;
+    border-bottom: 1px solid #393939;
+  }
+  
+  /* Overriding browser default (user-agent). */
+  
+  .footer__section .list {
+    margin: 0;
+  }
+  
+  .footer__heading {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .footer__brand {
+    margin: 5rem;
+    text-align: center;
+  }
+  
+  /* Need to make brand image responsive, otherwise it squashes into the footer headings when the screen is gradually shrunk. */
+  /* We have done this a few times now, could consider using a universal img { width: 100% } rule. Best to build website first and check if its applicable though. */
+  /* Think width: 100% think max width. */
+  
+  .footer__brand img {
+    width: 50%;
+    max-width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .footer__copyright {
+    font-size: 2.1rem;
+    color: #fff;
+    opacity: 0.3;
+  }
+  
+  /* Redefine grid. */
+  /* Add footer sections for extra specificity, incase we were to add a new grid to our footer in future that we didn't want to have the same layout. */
+  
+  @media screen and (min-width: 768px) {
+    .footer__sections {
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }
+  
+    /* Hididng toggler chevron. */
+  
+    .footer .collapsible-icon {
+      display: none;
+    }
+  
+    /* Making collapsible visible. */
+    .footer .collapsible__content {
+      opacity: 1;
+      max-height: 100%;
+    }
+  
+    /* Moving logo to the start of the footer. */
+    /* All items in grid have order 0 by default. Set to -1 it jumps to the start. */
+  
+    .footer__brand {
+      /* Set to 5rem earlier to put gap beneath beneath mobile footer options but looks bad on desktop. */
+      margin: 1rem;
+      order: -1;
+    }
+  
+    .footer__copyright {
+      font-size: 1.5rem;
+    }
+  
+    /* Get rid of mobile bottom border. */
+    .footer__section {
+      border: none;
+    }
+  
+    .footer__heading {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* My Inclusions */
+  /*------------------------------------------------------------*/
+  
+  /*------------------------------------------------------------*/
+  /* General */
+  /*------------------------------------------------------------*/
+  
+  .image--rounded {
+    border-radius: 30px;
+  }
+  
+  .branding {
+    color: var(--color-accent);
+  }
+  
+  .iconstyle {
+    color: var(--color-accent);
+    vertical-align: middle;
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Inputs */
+  /*------------------------------------------------------------*/
+  
+  .input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 2rem 0;
+    margin: 2rem auto;
+  }
+  .message {
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+    border: 0;
+    border-bottom: 1px solid #dcdcdc;
+    margin: 2rem auto;
+  }
+  .message:focus {
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+    border: 1px solid #ff3b3f;
+    margin: 2rem auto;
+  }
+  .input:focus,
+  .input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff3b3f;
+  }
+  
+  ::placeholder {
+    color: #cdcbd7;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .input {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Slideshow */
+  /*------------------------------------------------------------*/
+  
+  .slideshow--container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  .slideshow {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 10px;
+    background: #232323;
+  }
+  
+  .slideshow .slideshow__slide {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+  }
+  
+  .slideshow .slideshow__slide.active {
+    clip-path: circle(150% at 0 50%);
+    transition: 2s;
+    transition-property: clip-path;
+  }
+  
+  .slideshow .slideshow__slide .slideshow__image {
+    z-index: 1;
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .slideshow .slideshow__slide .slideshow__info {
+    position: absolute;
+    bottom: 0;
+    padding: 15px 30px;
+  }
+  
+  .slideshow .slideshow__slide .slideshow__info .slideshow__title {
+    color: #fff;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .slideshow .slideshow__slide .slideshow__info .slideshow__caption {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 1.6rem;
+    width: 60%;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .slideshow .slideshow__navigation {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .slideshow .slideshow__navigation .slideshow__btn {
+    background: rgba(255, 255, 255, 0.5);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .slideshow .slideshow__navigation .slideshow__btn.active {
+    background: #ff3b3f;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (max-width: 820px) {
+    .slideshow {
+      width: 600px;
+      height: 375px;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info {
+      padding: 10px 25px;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info .slideshow__title {
+      font-size: 3rem;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info .slideshow__caption {
+      width: 70%;
+      font-size: 1.5rem;
+    }
+  
+    .slideshow .slideshow__navigation {
+      bottom: 25px;
+    }
+  
+    .slideshow .slideshow__navigation .slideshow__btn {
+      width: 10px;
+      height: 10px;
+      margin: 8px;
+    }
+  }
+  
+  @media (max-width: 620px) {
+    .slideshow {
+      width: 400px;
+      height: 250px;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info {
+      padding: 10px 20px;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info .slideshow__title {
+      font-size: 3rem;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info .slideshow__caption {
+      width: 80%;
+      font-size: 1.3rem;
+    }
+  
+    .slideshow .slideshow__navigation {
+      bottom: 15px;
+    }
+  
+    .slideshow .slideshow__navigation .slideshow__btn {
+      width: 8px;
+      height: 8px;
+      margin: 6px;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .slideshow {
+      width: 320px;
+      height: 200px;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info {
+      padding: 5px 10px;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info .slideshow__title {
+      font-size: 2.5rem;
+    }
+  
+    .slideshow .slideshow__slide .slideshow__info .slideshow__caption {
+      width: 90%;
+      font-size: 1.1rem;
+    }
+  
+    .slideshow .slideshow__navigation {
+      bottom: 10px;
+    }
+  }
