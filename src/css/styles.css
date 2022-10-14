@@ -1094,3 +1094,10 @@ header.is-sticky {
   height: 100%;
   border-radius: 1rem;
 }
+
+
+.grid .grid--video{
+  /* Setting distance between elements in the grid. */
+  gap: 12rem 12rem;
+  margin-top: 6rem;
+}
