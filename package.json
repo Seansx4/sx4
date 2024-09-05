@@ -1,5 +1,5 @@
 {
-  "name": "simplesitesolutionsx3",
+  "name": "seanssimplesitesolutionsx4",
   "version": "1.0.0",
   "description": "\"# personal\"",
   "main": "index.js",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seansx4/Sean-Develops.git"
+    "url": "git+https://github.com/Seansx4/sx4.git"
   },
   "bugs": {
-    "url": "https://github.com/Seansx4/Sean-Develops/issues"
+    "url": "https://github.com/Seansx4/sx4/issues"
   },
-  "homepage": "https://github.com/Seansx4/Sean-Develops#readme",
+  "homepage": "https://github.com/Seansx4/sx4#readme",
   "dependencies": {
     "a-sync-waterfall": "^1.0.1",
     "abab": "^2.0.5",
