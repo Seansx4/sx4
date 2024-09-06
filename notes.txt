@@ -1,0 +1,21 @@
+SX4
+
+TO DOS:
+-------
+
+
+[] Build out ecommerce page
+[] Build out drone services page
+[] Create SEO page
+[] Create about me page - have things like education and experience, interests and hobbies like running, outdoors.sg etc linked
+[x] Rebrand header and footer and fix titles on pages
+[] Tidy up base.njk (fix meta descriptions etc)
+[] Add previous websites to web design page
+[x] Add moshify to Github as a resource
+
+
+
+Comments:
+---------
+Moved to Elventy commit on Oct 8, 2022 contains all OG content.
+Content from index page moved to specific pages - drone services and ecommerce (commented out at bottom)
