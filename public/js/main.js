@@ -59,3 +59,50 @@ var repeat = function (activeClass) {
   repeater();
 };
 repeat();
+
+
+
+/// Portfolio Carousel
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.querySelector(".review-carousel");
+  let scrollAmount = 0;
+  let direction = 1; // 1 for left-to-right, -1 for right-to-left
+  let intervalId;
+
+  function autoScroll() {
+    scrollAmount += direction * 2; // Adjust this value to control speed
+    if (
+      scrollAmount >= carousel.scrollWidth - carousel.clientWidth ||
+      scrollAmount <= 0
+    ) {
+      // Reverse direction when the end or start is reached
+      direction *= -1;
+    }
+    carousel.scrollLeft = scrollAmount;
+  }
+
+  function startAutoScroll() {
+    intervalId = setInterval(autoScroll, 60); // Adjust the speed by modifying the interval time
+  }
+
+  function stopAutoScroll() {
+    clearInterval(intervalId);
+  }
+
+  // Intersection Observer to detect when the carousel is in view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startAutoScroll();
+        } else {
+          stopAutoScroll();
+        }
+      });
+    },
+    { threshold: 0.1 }
+  ); // Adjust the threshold if needed
+
+  // Observe the carousel element
+  observer.observe(carousel);
+});
