@@ -415,48 +415,189 @@
       data-aos="zoom-in"
     />
   </article>
+</section>
+<section class="block container">
+  <header class="block__header">
+    <h2 class="block__first--on--page">
+      <span class="branding">Request a Free Website Draft</span>
+    </h2>
+    <p>Submit a query and I will reply as soon as possible!</p>
+  </header>
 
-  <section class="block container">
-    <header class="block__header">
-      <h2>Request a Free Website Draft</h2>
-    </header>
-    <form class="form" action="/submit-draft-request" method="POST">
-      <div class="form__group">
-        <label for="name" class="form__label">Your Name</label>
-        <input type="text" id="name" name="name" class="form__input" required />
+  <div class="card--containter">
+    <div class="contact">
+      <div class="card">
+        <div class="card__body">
+          <form
+            name="Contact Form"
+            method="POST"
+            netlify
+            enctype="multipart/form-data"
+            action="/successful-submission/"
+          >
+            <div class="form">
+              <input
+                type="text"
+                name="Name"
+                placeholder="Name*"
+                class="input"
+                required
+              />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email*"
+                class="input"
+                required
+              />
+              <input
+                type="text"
+                name="Business Name"
+                placeholder="Business Name*"
+                class="input"
+                required
+              />
+              <textarea
+                rows="5"
+                name="Message"
+                placeholder="Quick business overview"
+                class="message"
+                required
+              ></textarea>
+
+              <button
+                id="Contact Button"
+                class="btn btn--outline btn--block"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="form__group">
-        <label for="email" class="form__label">Your Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="form__input"
-          required
-        />
+    </div>
+  </div>
+</section>
+<section class="block container">
+  <header class="block__header">
+    <h2>Previous Clients</h2>
+    <p>Check out some of the previous websites I have built for clients!</p>
+  </header>
+  <article class="feature">
+    <div class="feature__content">
+      <div class="review-carousel">
+        <div class="portfolio-item">
+          <a href="https://premiumag.com.au/" target="_blank">
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/6705abccfd410a000859e9ef/screenshot_2024-10-08-22-02-24-0000.webp&fit=cover&h=500&q=40&w=800"
+              alt="Site 1"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://premiumag.com.au/"
+            target="_blank"
+            class="link underline effect"
+            >premiumag.com.au</a
+          >
+        </div>
+        <div class="portfolio-item">
+          <a href="https://reggiesplaytherapy.ie" target="_blank">
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/66d944cd464b380008b91f17/screenshot_2024-09-05-05-43-07-0000.webp&fit=cover&h=500&q=40&w=800"
+              alt="Site 1"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://reggiesplaytherapy.ie"
+            target="_blank"
+            class="link underline effect"
+            >reggiesplaytherapy.ie</a
+          >
+        </div>
+        <div class="portfolio-item">
+          <a href="https://thesurfy.netlify.app/" target="_blank">
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/66e0dcd30e294300089aceae/screenshot_2024-09-10-23-57-51-0000.webp&fit=cover&h=500&q=40&w=800"
+              alt="Site 2"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://thesurfy.netlify.app/"
+            target="_blank"
+            class="link underline effect"
+            >thesurfy.com.au</a
+          >
+        </div>
+        <div class="portfolio-item">
+          <a href="https://paulasbarbershop.netlify.app/" target="_blank">
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/61f6e3e479105a0008b07031/screenshot_2022-01-30-19-16-08-0000.png&fit=cover&h=500&q=40&w=800"
+              alt="Site 3"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://paulasbarbershop.netlify.app/"
+            target="_blank"
+            class="link underline effect"
+            >paulasbarber.ie</a
+          >
+        </div>
+        <div class="portfolio-item">
+          <a href="https://happydayscoffee.netlify.app/" target="_blank">
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/61d5c1ceba82270008e90ffb/screenshot_2022-01-05-16-05-54-0000.png&fit=cover&h=500&q=40&w=800"
+              alt="Site 1"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://happydayscoffee.netlify.app/"
+            target="_blank"
+            class="link underline effect"
+            >happydays.ie</a
+          >
+        </div>
+        <div class="portfolio-item">
+          <a href="https://coverup.netlify.app/" target="_blank">
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/61ab3970ee9bc10008d7ef30/screenshot_2021-12-04-09-49-02-0000.png&fit=cover&h=500&q=40&w=800"
+              alt="Site 2"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://coverup.netlify.app/"
+            target="_blank"
+            class="link underline effect"
+            >coverup.ie</a
+          >
+        </div>
+        <div class="portfolio-item">
+          <a
+            href="https://mcmahons-of-botantic-avenue.netlify.app/"
+            target="_blank"
+          >
+            <img
+              src="https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/636823f15f0fdf0008959ff1/screenshot_2022-11-06-21-16-22-0000.png&fit=cover&h=500&q=40&w=800"
+              alt="Site 3"
+              class="portfolio__image"
+            />
+          </a>
+          <a
+            href="https://mcmahons-of-botantic-avenue.netlify.app/"
+            target="_blank"
+            class="link underline effect"
+            >mcmahons.ie</a
+          >
+        </div>
       </div>
-      <div class="form__group">
-        <label for="business" class="form__label">Your Business Name</label>
-        <input type="text" id="business" name="business" class="form__input" />
-      </div>
-      <div class="form__group">
-        <label for="details" class="form__label"
-          >Website Goals / Requirements</label
-        >
-        <textarea
-          id="details"
-          name="details"
-          class="form__input"
-          rows="4"
-        ></textarea>
-      </div>
-      <div class="form__group">
-        <button type="submit" class="btn btn--primary">
-          Request Website Draft
-        </button>
-      </div>
-    </form>
-  </section>
+    </div>
+  </article>
 </section>
 
     <footer class="block block--dark footer">
