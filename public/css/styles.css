@@ -697,8 +697,8 @@ a {
 
 @media screen and (min-width: 768px) {
   .hero {
-    padding-top: 15rem;
-    padding-bottom: 15rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .hero__content {
@@ -723,6 +723,16 @@ a {
 .feature__image {
   width: 100%;
   border-radius: 2rem;
+}
+
+.me {
+  width: 100%;
+  border-radius: 2rem;
+  max-height: 550px;
+  object-fit:cover;
+  margin: 0 auto;
+  display: block;
+ 
 }
 
 .image--center {
