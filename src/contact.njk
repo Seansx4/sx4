@@ -8,7 +8,7 @@ layout: "base.njk"
     <h2 class="block__first--on--page">
       <span class="branding">Contact</span>
     </h2>
-    <p>Submit a query and I will reply as soon as possible!</p>
+    <p>Submit a query and I will reply within one business day!</p>
   </header>
 
   <div class="card--containter">
@@ -16,9 +16,11 @@ layout: "base.njk"
       <div class="card">
         <div class="card__body">
           <form
-            action="https://formspree.io/f/mayveqvp"
+            name="Contact Form"
             method="POST"
+            netlify
             enctype="multipart/form-data"
+            action="/successful-submission/"
           >
             <div class="form">
               <input
@@ -26,15 +28,15 @@ layout: "base.njk"
                 name="Name"
                 placeholder="Name*"
                 class="input"
+                required
               />
-              <td>
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Email*"
-                  class="input"
-                />
-              </td>
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email*"
+                class="input"
+                required
+              />
               <input
                 type="text"
                 name="Phone"
@@ -46,12 +48,13 @@ layout: "base.njk"
                 name="Message"
                 placeholder="Your message..."
                 class="message"
+                required
               ></textarea>
+
               <button
                 id="Contact Button"
                 class="btn btn--outline btn--block"
                 type="submit"
-                value="Submit"
               >
                 Submit
               </button>
