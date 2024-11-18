@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | SX4</title>
+    <title>Page Not Found | SX4</title>
     <!-- add icon link -->
     <link rel="icon" href="/images/tab icon.png" />
     <meta
@@ -27,7 +27,7 @@
 
     <link
       rel="canonical"
-      href="https://seanssimplesitesolutions.com/contact/"
+      href="https://seanssimplesitesolutions.com/404.html"
     />
 
     <!-- Google tag (gtag.js) -->
@@ -69,65 +69,39 @@
     
 <section class="block container">
   <header class="block__header">
-    <h2 class="block__first--on--page">
-      <span class="branding">Contact</span>
-    </h2>
-    <p>Submit a query and I will reply within one business day!</p>
+    <h2>Oops! Page Not Found</h2>
   </header>
 
-  <div class="card--containter">
-    <div class="contact">
-      <div class="card">
-        <div class="card__body">
-          <form
-            name="Contact Form"
-            method="POST"
-            netlify
-            enctype="multipart/form-data"
-            action="/successful-submission/"
-          >
-            <div class="form">
-              <input
-                type="text"
-                name="Name"
-                placeholder="Name*"
-                class="input"
-                required
-              />
-              <input
-                type="email"
-                name="Email"
-                placeholder="Email*"
-                class="input"
-                required
-              />
-              <input
-                type="text"
-                name="Phone"
-                placeholder="Phone"
-                class="input"
-              />
-              <textarea
-                rows="5"
-                name="Message"
-                placeholder="Your message..."
-                class="message"
-                required
-              ></textarea>
+  <article class="grid grid--1x2 feature">
+    <div class="feature__content" data-aos="fade-right">
+      <h3 class="feature__heading">404 Error</h3>
+      <p>
+        It seems the page you're looking for has moved or doesn't exist anymore.
+      </p>
+      <p>Here’s what you can do:</p>
 
-              <button
-                id="Contact Button"
-                class="btn btn--outline btn--block"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <ul class="list--secondary">
+        <li class="list__item">Double-check the URL for any typos.</li>
+        <li class="list__item">
+          Go back to the <a href="/">homepage</a> and try navigating from there.
+        </li>
+        <li class="list__item">
+          If you’re looking for something specific and can’t find it, feel free
+          to <a href="/contact">get in touch</a>!.
+        </li>
+      </ul>
+
+      <a href="/"> <button class="btn btn--outline">Home</button></a>
+      <a href="/contact/"> <button class="btn btn--outline">Contact</button></a>
     </div>
-  </div>
+
+    <img
+      class="feature__image"
+      src="/images/sx4%20meme.jpg"
+      alt="Computer with a brochure website"
+      data-aos="zoom-in"
+    />
+  </article>
 </section>
 
     <footer class="block block--dark footer">

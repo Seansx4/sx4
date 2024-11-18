@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /successful-submission/
+Disallow: /business-card-referral/
+
+
+Sitemap: https://seanssimplesitesolutions.com/sitemap.xml
